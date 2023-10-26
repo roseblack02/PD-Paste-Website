@@ -1,0 +1,38 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0A1128;
+    font-size:medium;
+}
+
+#center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo {
+    width:15%;
+    margin-right:2%;
+}
+
+@media screen and (max-width: 1000px) and (min-width: 251px){
+    .logo {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .logo {
+        width: 50px;
+    }
+}
+.navContent {
+    float: right;
+}
+
+#footer {
+    clear: both;
+    background-color: #92BFD4;
+    text-align: center;
+}

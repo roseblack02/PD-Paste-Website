@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterPage.master.cs" Inherits="AssignmentSite.masterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <!--css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/styles.css" rel="stylesheet" />
+
+    <!--js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <a id="top"></a>
+
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#92BFD4">
+                <div class="container-fluid">
+                    <asp:Image ID="imgLogo" runat="server" ImageUrl="~/images/pasteLogoFilled.png" CssClass="logo" />
+
+                    <!--will collapse if on mobile-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div id="navContent">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <!--individual items-->
+                                <li class="nav-item" id="adminPage">
+                                    <a class="nav-link" href="#">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../index.aspx">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                             
+                                <!--drop down-->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">All</a></li>
+                                        <li><a class="dropdown-item" href="#">News</a></li>
+                                        <li><a class="dropdown-item" href="#">Videos</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <div id="footer">
+                <a href="#top">Back to top</a>
+
+                <p style="padding:2%;">© 2023 Paste Skate Mag</p>
+                <p style="padding:2%;"><asp:HyperLink ID="hlContact" runat="server" NavigateUrl="~/about.aspx" ForeColor="#7E7F9A" Font-Size="Medium">Contact Us</asp:HyperLink></p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
