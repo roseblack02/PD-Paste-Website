@@ -89,5 +89,11 @@ namespace AssignmentSite.BLL
 
             return featured;
         }
+
+        //update featured article
+        public Boolean updateFeatured(int featuredID, int articleID)
+        {
+            return DataAccess.updateFeatured(featuredID, articleID);
+        }
     }
 }

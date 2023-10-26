@@ -104,7 +104,7 @@ namespace AssignmentSite.DAL
                 OleDbConnection conn = openConnection();
                 string sqlStr = "UPDATE tblFeatured " +
                     "SET ArticleID = " + articleID + " " +
-                    "WHERE FeaturedID=" + featuredID;
+                    "WHERE FeaturedID=" + featuredID + ";";
 
                 OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
 

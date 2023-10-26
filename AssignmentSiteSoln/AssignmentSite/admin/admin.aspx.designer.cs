@@ -15,13 +15,22 @@ namespace AssignmentSite.admin
     {
 
         /// <summary>
-        /// gdvFeatured control.
+        /// gvFeatured control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvFeatured;
+        protected global::System.Web.UI.WebControls.GridView gvFeatured;
+
+        /// <summary>
+        /// gvArticles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvArticles;
 
         /// <summary>
         /// lblFeatured control.
@@ -76,15 +85,6 @@ namespace AssignmentSite.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutput;
-
-        /// <summary>
-        /// gdvArticles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvArticles;
 
         /// <summary>
         /// SqlDataSource2 control.
