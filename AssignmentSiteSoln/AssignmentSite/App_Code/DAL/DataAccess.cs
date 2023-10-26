@@ -36,12 +36,12 @@ namespace AssignmentSite.DAL
         }
 
         //get all articles
-        public static DataSet getAllArticles(int id)
+        public static DataSet getAllArticles()
         {
             DataSet ds = new DataSet();
 
             OleDbConnection conn = openConnection();
-            string sqlStr = "SELECT * FROM tblArticle WHERE FeaturedID="+id;
+            string sqlStr = "SELECT * FROM tblArticle";
 
             OleDbDataAdapter daArticles = new OleDbDataAdapter(sqlStr, conn);
             daArticles.Fill(ds, "dtArticles");
@@ -50,6 +50,7 @@ namespace AssignmentSite.DAL
             return ds;
         }
 
+        
         //get featured articles
         public static DataSet getFeatured()
         {
@@ -63,6 +64,36 @@ namespace AssignmentSite.DAL
             conn.Close();
 
             return ds;
+        }
+
+        //get featured articles by id
+        public static String[] getFeaturedByID(int id)
+        {
+            OleDbConnection conn = openConnection();
+            string sqlStr = "SELECT * FROM qryFeatured WHERE FeaturedID="+id;
+
+            OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            String title = "", category = "", image = "", date ="", link="";
+            int views = 0;
+
+            while (reader.Read())
+            {
+                title = reader["Title"].ToString();
+                category = reader["Category"].ToString();
+                image = reader["ImageURL"].ToString();
+                views = Convert.ToInt32(reader["Views"]);
+                date = reader["DatePublished"].ToString();
+                link = reader["Link"].ToString();
+            }
+            reader.Close();
+            conn.Close();
+
+            string[] details = { title, category, image, views.ToString(), date , link};
+
+
+            return details;
         }
 
         //update featured articles

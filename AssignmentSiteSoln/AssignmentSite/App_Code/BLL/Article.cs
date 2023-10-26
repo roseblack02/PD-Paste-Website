@@ -10,11 +10,84 @@ namespace AssignmentSite.BLL
     {
         private String title, category, image, date;
         private int views, id;
-        private String[][] featured = new String[5][];
 
-        public void getFeatured()
+        //set and get title
+        public void setTitle(String title)
         {
+            this.title = title;
+        }
 
+        public string getTitle()
+        {
+            return title;
+        }
+
+        //set and get category
+        public void setCategory(String category)
+        {
+            this.category = category;
+        }
+
+        public string getCategory()
+        {
+            return category;
+        }
+
+        //set and get image
+        public void setImage(String image)
+        {
+            this.image = image;
+        }
+
+        public string getImage()
+        {
+            return image;
+        }
+
+        //set and get date
+        public void setDate(String date)
+        {
+            this.date = date;
+        }
+
+        public string getDate()
+        {
+            return date;
+        }
+
+        //set and get views
+        public void setViews(int views)
+        {
+            this.views = views;
+        }
+
+        public int getViews()
+        {
+            return views;
+        }
+
+        //set and get id
+        public void setID(int id)
+        {
+            this.id = id;
+        }
+
+        public int getID()
+        {
+            return id;
+        }
+
+        //get 5 featured articles
+        public String[][] getFeatured()
+        {
+            String[][] featured = new String[5][];
+
+            for (int i = 0; i < 5; i++)
+            {
+                featured[i]=DataAccess.getFeaturedByID(i+1);
+            }
+
+            return featured;
         }
     }
 }

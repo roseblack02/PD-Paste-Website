@@ -7,102 +7,93 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AssignmentSite
+namespace AssignmentSite.admin
 {
 
 
-    public partial class WebForm1
+    public partial class admin
     {
 
         /// <summary>
-        /// imbFeatured1 control.
+        /// gdvFeatured control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imbFeatured1;
+        protected global::System.Web.UI.WebControls.GridView gdvFeatured;
 
         /// <summary>
-        /// lblFeatured1 control.
+        /// lblFeatured control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeatured1;
+        protected global::System.Web.UI.WebControls.Label lblFeatured;
 
         /// <summary>
-        /// imbFeatured2 control.
+        /// txtFeatured control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imbFeatured2;
+        protected global::System.Web.UI.WebControls.TextBox txtFeatured;
 
         /// <summary>
-        /// lblFeatured2 control.
+        /// lblArticle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeatured2;
+        protected global::System.Web.UI.WebControls.Label lblArticle;
 
         /// <summary>
-        /// imbFeatured3 control.
+        /// txtArticle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imbFeatured3;
+        protected global::System.Web.UI.WebControls.TextBox txtArticle;
 
         /// <summary>
-        /// lblFeatured3 control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeatured3;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
-        /// imbFeatured4 control.
+        /// lblOutput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imbFeatured4;
+        protected global::System.Web.UI.WebControls.Label lblOutput;
 
         /// <summary>
-        /// lblFeatured4 control.
+        /// gdvArticles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeatured4;
+        protected global::System.Web.UI.WebControls.GridView gdvArticles;
 
         /// <summary>
-        /// imbFeatured5 control.
+        /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imbFeatured5;
-
-        /// <summary>
-        /// lblFeatured5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeatured5;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
         /// SqlDataSource1 control.

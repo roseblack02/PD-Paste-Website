@@ -67,14 +67,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\admin.aspx" />
     <Content Include="App_Data\pasteDB.accdb" />
     <Content Include="css\styles.css" />
+    <Content Include="images\arinPro.png" />
+    <Content Include="images\austinGlobe.png" />
+    <Content Include="images\cooperPart.png" />
+    <Content Include="images\girl30.png" />
+    <Content Include="images\leoShoe.png" />
     <Content Include="images\pasteLogoFilled.png" />
+    <Content Include="images\rowanShoe.png" />
+    <Content Include="images\shagPro.png" />
     <Content Include="images\temp.png" />
+    <Content Include="images\tomPart.png" />
+    <Content Include="javaScript\JavaScript.js" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\BLL\Article.cs" />
     <Compile Include="App_Code\BLL\Articles.cs" />
     <Compile Include="App_Code\DAL\DataAccess.cs" />
@@ -104,6 +121,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
