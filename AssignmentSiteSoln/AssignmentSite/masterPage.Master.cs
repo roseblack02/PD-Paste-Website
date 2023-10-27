@@ -11,7 +11,20 @@ namespace AssignmentSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    lblUsername.Text = "Welcome " + HttpContext.Current.User.Identity.Name;
 
+                    hlAdmin.Visible = HttpContext.Current.User.Identity.Name.Equals("admin");
+                    hlAccount.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
+                }
+                else
+                {
+                    lblUsername.Text = "You are not logged in";
+                }
+            }
         }
     }
 }

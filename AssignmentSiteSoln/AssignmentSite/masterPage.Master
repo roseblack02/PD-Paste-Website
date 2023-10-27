@@ -34,35 +34,43 @@
                     <div id="navContent">
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                <li class="nav-item">
+                                    <asp:Label ID="lblUsername" runat="server" Text=""  CssClass="nav-link"></asp:Label>
+                                </li>
+
                                 <!--individual items-->
-                                <li class="nav-item" id="adminPage">
-                                    <a class="nav-link" href="/admin/admin.aspx">Admin</a>
+                                <li class="nav-item">
+                                    <asp:HyperLink ID="hlAdmin" runat="server" NavigateUrl="~/admin/admin.aspx" CssClass="nav-link" Visible="False">Admin</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/index.aspx">Login</a>
+                                    <asp:HyperLink ID="hlAccount" runat="server" NavigateUrl="~/userAccount/account.aspx" CssClass="nav-link" Visible="False">Account</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/index.aspx">Home</a>
+                                    <asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="/login.aspx" CssClass="nav-link">Login</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/index.aspx">About</a>
+                                    <asp:HyperLink ID="hlhome" runat="server" NavigateUrl="/index.aspx" CssClass="nav-link">Home</asp:HyperLink>
+                                </li>
+                                <li class="nav-item">
+                                    <asp:HyperLink ID="hlAbout" runat="server" NavigateUrl="/index.aspx" CssClass="nav-link">About</asp:HyperLink>
                                 </li>
                              
                                 <!--drop down-->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="~/index.aspx">All</a></li>
-                                        <li><a class="dropdown-item" href="~/index.aspx">News</a></li>
-                                        <li><a class="dropdown-item" href="~/index.aspx">Videos</a></li>
+                                        <asp:HyperLink ID="hlAll" runat="server" NavigateUrl="/index.aspx" CssClass="dropdown-item">All</asp:HyperLink>
+                                        <asp:HyperLink ID="hlNews" runat="server" NavigateUrl="/index.aspx" CssClass="dropdown-item">News</asp:HyperLink>
+                                        <asp:HyperLink ID="hlVideos" runat="server" NavigateUrl="/index.aspx" CssClass="dropdown-item">Videos</asp:HyperLink>
                                     </ul>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="~/index.aspx">Shop</a>
+                                    <asp:HyperLink ID="hlShop" runat="server" NavigateUrl="/index.aspx" CssClass="nav-link">Shop</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="~/index.aspx">Cart</a>
+                                    <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="/index.aspx" CssClass="nav-link">Cart</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>

@@ -81,6 +81,8 @@
     <Content Include="images\temp.png" />
     <Content Include="images\tomPart.png" />
     <Content Include="javaScript\JavaScript.js" />
+    <Content Include="login.aspx" />
+    <Content Include="userAccount\account.aspx" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
   </ItemGroup>
@@ -92,9 +94,17 @@
     <Compile Include="admin\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\BLL\Account.cs" />
     <Compile Include="App_Code\BLL\Article.cs" />
     <Compile Include="App_Code\BLL\Articles.cs" />
     <Compile Include="App_Code\DAL\DataAccess.cs" />
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="masterPage.Master.cs">
       <DependentUpon>masterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,10 +120,19 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="userAccount\account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userAccount\account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="masterPage.Master" />
+    <Content Include="admin\Web.config" />
     <None Include="packages.config" />
+    <Content Include="userAccount\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

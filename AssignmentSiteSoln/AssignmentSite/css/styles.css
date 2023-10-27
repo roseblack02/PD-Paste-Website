@@ -16,17 +16,6 @@
     margin-right:2%;
 }
 
-@media screen and (max-width: 1000px) and (min-width: 251px){
-    .logo {
-        width: 150px;
-    }
-}
-
-@media screen and (max-width: 250px) {
-    .logo {
-        width: 50px;
-    }
-}
 .navContent {
     float: right;
 }
@@ -119,4 +108,34 @@
 .mySlides:hover .slideImage {
     opacity: 0.3;
     transition: .3s ease;
+}
+
+@media screen and (max-width: 800px) and (min-width: 251px) {
+    .logo {
+        width: 150px;
+    }
+
+    body {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .logo {
+        width: 50px;
+    }
+
+    body {
+        font-size: 0.8em;
+    }
+
+    .slideshow-container {
+        max-width: 220px;
+    }
+}
+
+@media screen and (max-width: 500px) and (min-width: 251px) {
+    .slideshow-container {
+        max-width: 80%;
+    }
 }

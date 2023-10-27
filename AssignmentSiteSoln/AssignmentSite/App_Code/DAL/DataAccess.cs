@@ -35,6 +35,37 @@ namespace AssignmentSite.DAL
             cn.Close();
         }
 
+        //login
+        public static int validatelogin(String username, String password)
+        {
+            int userID = -1;
+
+            try
+            {
+                OleDbConnection conn = openConnection();
+
+                String sql = "SELECT * FROM tblAccount WHERE " +
+                    "Username='" + username + "' AND PWord='" + password + "';";
+
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userID = Convert.ToInt32(reader["ID"]);
+                }
+
+                reader.Close();
+                closeConnection(conn);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return userID;
+        }
+
+        //articles
         //get all articles
         public static DataSet getAllArticles()
         {
