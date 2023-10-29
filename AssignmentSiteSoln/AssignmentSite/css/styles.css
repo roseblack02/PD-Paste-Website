@@ -4,6 +4,13 @@
     font-size: 1.2em;
 }
 
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 #center {
     margin: auto;
     width: 50%;
@@ -46,7 +53,7 @@
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 30%;
+    max-width: 50%;
     position: relative;
     margin: auto auto 2% auto;
 }
@@ -110,13 +117,21 @@
     transition: .3s ease;
 }
 
-@media screen and (max-width: 800px) and (min-width: 251px) {
+
+/*responsive*/
+@media screen and (max-width: 950px) and (min-width: 251px) {
     .logo {
         width: 150px;
     }
 
     body {
         font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 950px) and (min-width: 251px) {
+    .slideshow-container {
+        max-width: 80%;
     }
 }
 
@@ -130,12 +145,6 @@
     }
 
     .slideshow-container {
-        max-width: 220px;
-    }
-}
-
-@media screen and (max-width: 500px) and (min-width: 251px) {
-    .slideshow-container {
-        max-width: 80%;
+        max-width: 200px;
     }
 }
