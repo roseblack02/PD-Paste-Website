@@ -113,5 +113,11 @@ namespace AssignmentSite.BLL
         {
             return DataAccess.updateViews(articleID, views);
         }
+
+        //get number of articles
+        public int getArticleCount()
+        {
+            return DataAccess.getArticleCount();
+        }
     }
 }

@@ -111,6 +111,21 @@ namespace AssignmentSite.DAL
             return details;
         }
 
+        //count number of articles
+        public static int getArticleCount()
+        {
+            OleDbConnection conn = openConnection();
+            string sqlStr = "SELECT COUNT(ID) FROM tblArticle";
+
+            OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
+
+            int count = (int)cmd.ExecuteScalar();
+
+            conn.Close();
+
+            return count;
+        }
+
         //update article views
         public static bool updateViews(int articleID, int views)
         {

@@ -14,8 +14,9 @@ namespace AssignmentSite
         {
             if (!IsPostBack)
             {
-                Article featuredArticles = new Article();
-                String[][] featured = featuredArticles.getAllFeatured();
+                //get carousel info from database
+                Article article = new Article();
+                String[][] featured = article.getAllFeatured();
 
                 imbFeatured1.ImageUrl = featured[0][2];
                 imbFeatured1.PostBackUrl = featured[0][5];

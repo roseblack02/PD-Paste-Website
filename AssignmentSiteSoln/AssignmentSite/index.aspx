@@ -52,6 +52,110 @@
   	        <span class="dot" onclick="currentSlide(4)"></span>
             <span class="dot" onclick="currentSlide(5)"></span> 
         </div>
+
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
+            <AlternatingItemTemplate>
+                <span style="">
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                <br />
+                <asp:ImageButton ID="ImageButton" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="images" />
+                <br />
+                Category:
+                <asp:Label ID="CategoryLabel" runat="server" Text='<%# Eval("Category") %>' />
+                <br />
+                Views:
+                <asp:Label ID="ViewsLabel" runat="server" Text='<%# Eval("Views") %>' />
+                <br />
+                DatePublished:
+                <asp:Label ID="DatePublishedLabel" runat="server" Text='<%# Eval("DatePublished") %>' />
+                <br />
+                <br /></span>
+            </AlternatingItemTemplate>
+            <EditItemTemplate>
+                <span style="">
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                <br />
+                <asp:ImageButton ID="ImageButton" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="images" />
+                <br />
+                Category:
+                <asp:Label ID="CategoryLabel" runat="server" Text='<%# Eval("Category") %>' />
+                <br />
+                Views:
+                <asp:Label ID="ViewsLabel" runat="server" Text='<%# Eval("Views") %>' />
+                <br />
+                DatePublished:
+                <asp:Label ID="DatePublishedLabel" runat="server" Text='<%# Eval("DatePublished") %>' />
+                <br />
+                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                <br /><br /></span>
+            </EditItemTemplate>
+            <EmptyDataTemplate>
+                <span>No data was returned.</span>
+            </EmptyDataTemplate>
+            <InsertItemTemplate>
+                <span style="">
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                <br />
+                <asp:ImageButton ID="ImageButton" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="images" />
+                <br />
+                Category:
+                <asp:Label ID="CategoryLabel" runat="server" Text='<%# Eval("Category") %>' />
+                <br />
+                Views:
+                <asp:Label ID="ViewsLabel" runat="server" Text='<%# Eval("Views") %>' />
+                <br />
+                DatePublished:
+                <asp:Label ID="DatePublishedLabel" runat="server" Text='<%# Eval("DatePublished") %>' />
+                <br />
+                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                <br /><br /></span>
+            </InsertItemTemplate>
+            <ItemTemplate>
+                <span style="">
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                <br />
+                <asp:ImageButton ID="ImageButton" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="images" />
+                <br />
+                Category:
+                <asp:Label ID="CategoryLabel" runat="server" Text='<%# Eval("Category") %>' />
+                <br />
+                Views:
+                <asp:Label ID="ViewsLabel" runat="server" Text='<%# Eval("Views") %>' />
+                <br />
+                DatePublished:
+                <asp:Label ID="DatePublishedLabel" runat="server" Text='<%# Eval("DatePublished") %>' />
+                <br />
+<br /></span>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <div id="itemPlaceholderContainer" runat="server" style="">
+                    <span runat="server" id="itemPlaceholder" />
+                </div>
+                <div style="">
+                </div>
+            </LayoutTemplate>
+            <SelectedItemTemplate>
+                <span style="">
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                <br />
+                <asp:ImageButton ID="ImageButton" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="images" />
+                <br />
+                Category:
+                <asp:Label ID="CategoryLabel" runat="server" Text='<%# Eval("Category") %>' />
+                <br />
+                Views:
+                <asp:Label ID="ViewsLabel" runat="server" Text='<%# Eval("Views") %>' />
+                <br />
+                DatePublished:
+                <asp:Label ID="DatePublishedLabel" runat="server" Text='<%# Eval("DatePublished") %>' />
+                <br />
+                <br /></span>
+            </SelectedItemTemplate>
+        </asp:ListView>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Title], [Category], [ImageURL], [Views], [DatePublished], [Link] FROM [tblArticle] ORDER BY [Views] DESC"></asp:SqlDataSource>
+
     </div>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [qryFeatured]"></asp:SqlDataSource>
 </asp:Content>
