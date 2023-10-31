@@ -83,7 +83,6 @@
     <Content Include="images\tomPart.png" />
     <Content Include="javaScript\JavaScript.js" />
     <Content Include="login.aspx" />
-    <Content Include="userAccount\account.aspx" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
   </ItemGroup>
@@ -128,19 +127,11 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="userAccount\account.aspx.cs">
-      <DependentUpon>account.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="userAccount\account.aspx.designer.cs">
-      <DependentUpon>account.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="masterPage.Master" />
     <Content Include="admin\Web.config" />
     <None Include="packages.config" />
-    <Content Include="userAccount\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

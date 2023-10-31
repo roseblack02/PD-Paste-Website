@@ -18,10 +18,11 @@ namespace AssignmentSite
                     lblUsername.Text = "Welcome " + HttpContext.Current.User.Identity.Name;
 
                     hlAdmin.Visible = HttpContext.Current.User.Identity.Name.Equals("admin");
-                    hlAccount.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
+                    hlLogin.Text = "Logout";
                 }
                 else
                 {
+                    hlLogin.Text = "Login";
                     lblUsername.Text = "You are not logged in";
                 }
             }

@@ -6,5 +6,7 @@
         <h1>Login</h1>
 
         <asp:Login runat="server" ID="lgLogin" OnAuthenticate="lgLogin_Authenticate" CssClass="login"></asp:Login>
+
+        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" Visible="False" />
     </div>
 </asp:Content>

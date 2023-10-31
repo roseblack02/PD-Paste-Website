@@ -60,15 +60,6 @@ namespace AssignmentSite
         protected global::System.Web.UI.WebControls.HyperLink hlAdmin;
 
         /// <summary>
-        /// hlAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAccount;
-
-        /// <summary>
         /// hlLogin control.
         /// </summary>
         /// <remarks>

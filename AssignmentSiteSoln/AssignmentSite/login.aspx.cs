@@ -13,7 +13,7 @@ namespace AssignmentSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            btnLogout.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
         }
 
         protected void lgLogin_Authenticate(object sender, AuthenticateEventArgs e)
@@ -27,6 +27,12 @@ namespace AssignmentSite
                 FormsAuthentication.RedirectFromLoginPage(lgLogin.UserName, true);
                 Response.Redirect("~/index.aspx");
             }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("~/index.aspx");
         }
     }
 }
