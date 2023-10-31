@@ -49,6 +49,13 @@ h1 {
     font-size:large;
 }
 
+.columns {
+    margin: 5%;
+    width: 50%;
+    background-color: red;
+    padding: 1%;
+}
+
 
 
 /*For carousel*/
