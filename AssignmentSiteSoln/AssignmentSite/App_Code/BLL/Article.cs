@@ -77,8 +77,14 @@ namespace AssignmentSite.BLL
             return id;
         }
 
+        //get single featured by ID
+        public String[] getFeatured(int featuredID)
+        {
+            return DataAccess.getFeaturedByID(featuredID);
+        }
+
         //get 5 featured articles
-        public String[][] getFeatured()
+        public String[][] getAllFeatured()
         {
             String[][] featured = new String[5][];
 
@@ -94,6 +100,18 @@ namespace AssignmentSite.BLL
         public Boolean updateFeatured(int featuredID, int articleID)
         {
             return DataAccess.updateFeatured(featuredID, articleID);
+        }
+
+        //get single article by ID
+        public String[] getArticle(int id)
+        {
+            return DataAccess.getArticleByID(id);
+        }
+
+        //update article views
+        public Boolean updateViews(int articleID, int views)
+        {
+            return DataAccess.updateViews(articleID, views);
         }
     }
 }

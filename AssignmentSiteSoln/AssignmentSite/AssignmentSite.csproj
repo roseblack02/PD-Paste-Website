@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="admin\admin.aspx" />
     <Content Include="App_Data\pasteDB.accdb" />
+    <Content Include="articles\shagPro.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="images\arinPro.png" />
     <Content Include="images\austinGlobe.png" />
@@ -98,6 +99,13 @@
     <Compile Include="App_Code\BLL\Article.cs" />
     <Compile Include="App_Code\BLL\Articles.cs" />
     <Compile Include="App_Code\DAL\DataAccess.cs" />
+    <Compile Include="articles\shagPro.aspx.cs">
+      <DependentUpon>shagPro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articles\shagPro.aspx.designer.cs">
+      <DependentUpon>shagPro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

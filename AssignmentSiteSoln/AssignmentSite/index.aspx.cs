@@ -15,7 +15,7 @@ namespace AssignmentSite
             if (!IsPostBack)
             {
                 Article featuredArticles = new Article();
-                String[][] featured = featuredArticles.getFeatured();
+                String[][] featured = featuredArticles.getAllFeatured();
 
                 imbFeatured1.ImageUrl = featured[0][2];
                 imbFeatured1.PostBackUrl = featured[0][5];

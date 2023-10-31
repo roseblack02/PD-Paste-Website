@@ -81,7 +81,64 @@ namespace AssignmentSite.DAL
             return ds;
         }
 
-        
+        //get articles by id
+        public static String[] getArticleByID(int id)
+        {
+            OleDbConnection conn = openConnection();
+            string sqlStr = "SELECT * FROM tblArticle WHERE ID=" + id;
+
+            OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            String title = "", category = "", image = "", date = "", link = "";
+            int views = 0;
+
+            while (reader.Read())
+            {
+                title = reader["Title"].ToString();
+                category = reader["Category"].ToString();
+                image = reader["ImageURL"].ToString();
+                views = Convert.ToInt32(reader["Views"]);
+                date = reader["DatePublished"].ToString();
+                link = reader["Link"].ToString();
+            }
+            reader.Close();
+            conn.Close();
+
+            string[] details = { title, category, image, views.ToString(), date, link };
+
+
+            return details;
+        }
+
+        //update article views
+        public static bool updateViews(int articleID, int views)
+        {
+            try
+            {
+                OleDbConnection conn = openConnection();
+                string sqlStr = "UPDATE tblArticle " +
+                    "SET Views = " + views + " " +
+                    "WHERE ID=" + articleID + ";";
+
+                OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
+
+                int count = cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                if (count == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
         //get featured articles
         public static DataSet getFeatured()
         {
