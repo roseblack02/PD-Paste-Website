@@ -50,14 +50,11 @@ h1 {
 }
 
 .columns {
-    margin: 5%;
-    width: 50%;
-    background-color: red;
+    margin: auto;
+    width: 30%;
     padding: 1%;
+    float:left;
 }
-
-
-
 /*For carousel*/
 /* universal */
 * {
