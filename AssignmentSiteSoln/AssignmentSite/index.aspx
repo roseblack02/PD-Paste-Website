@@ -55,7 +55,7 @@
 
         <br />
         <br />
-        <table align="center" class="w-50"" id="tblArticles">
+        <table align="center" class="w-50" id="tblArticles" >
             <tr>
                 <td>
                     <div class="columns">
@@ -63,7 +63,7 @@
 
                     <asp:ListView ID="lvPopular" runat="server" DataSourceID="SqlDataSource1">
                         <AlternatingItemTemplate>
-                            <span  class="card" style="width: 18rem;">
+                            <span  class="card " style="width: 18rem;">
                                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
 
                                 <div class="card-body">
@@ -214,7 +214,7 @@
 
                 <td>
                     <div class="columns">
-                    <h2>Latest</h2>
+                    <h2 >Latest</h2>
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource2">
                         <AlternatingItemTemplate>
                             <span  class="card" style="width: 18rem;">

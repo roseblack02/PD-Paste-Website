@@ -51,9 +51,8 @@ h1 {
 
 .columns {
     margin: auto;
-    width: 30%;
+    width: 100%;
     padding: 1%;
-    float:left;
 }
 /*For carousel*/
 /* universal */
