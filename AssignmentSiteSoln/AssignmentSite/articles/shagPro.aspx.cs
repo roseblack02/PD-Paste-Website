@@ -19,7 +19,7 @@ namespace AssignmentSite.articles
                 Article article = new Article();
                 String[] articleInfo = article.getArticle(id);
 
-                int views = Convert.ToInt32(articleInfo[3]) + 1;
+                /*int views = Convert.ToInt32(articleInfo[3]) + 1;
 
                 try
                 {
@@ -27,7 +27,10 @@ namespace AssignmentSite.articles
                 }
                 catch (Exception ex)
                 {
-                }
+                }*/
+
+                refViewCounter.viewCounter viewCounter = new refViewCounter.viewCounter();
+                int views = viewCounter.updateViews(id);
 
                 lblViews.Text = "views: " + views.ToString();
                 lblDate.Text = "Date: " + articleInfo[4].ToString();

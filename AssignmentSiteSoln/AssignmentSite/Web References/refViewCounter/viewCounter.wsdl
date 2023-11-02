@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="updateViews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateViewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateViewsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="updateViewsSoapIn">
+    <wsdl:part name="parameters" element="tns:updateViews" />
+  </wsdl:message>
+  <wsdl:message name="updateViewsSoapOut">
+    <wsdl:part name="parameters" element="tns:updateViewsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="viewCounterSoap">
+    <wsdl:operation name="updateViews">
+      <wsdl:input message="tns:updateViewsSoapIn" />
+      <wsdl:output message="tns:updateViewsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="viewCounterSoap" type="tns:viewCounterSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateViews">
+      <soap:operation soapAction="http://tempuri.org/updateViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="viewCounterSoap12" type="tns:viewCounterSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateViews">
+      <soap12:operation soapAction="http://tempuri.org/updateViews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="viewCounter">
+    <wsdl:port name="viewCounterSoap" binding="tns:viewCounterSoap">
+      <soap:address location="https://localhost:44398/viewCounter.asmx" />
+    </wsdl:port>
+    <wsdl:port name="viewCounterSoap12" binding="tns:viewCounterSoap12">
+      <soap12:address location="https://localhost:44398/viewCounter.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

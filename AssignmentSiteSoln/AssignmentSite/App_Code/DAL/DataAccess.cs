@@ -4,6 +4,8 @@ using System.Data.OleDb;
 using System.Data;
 using System.Linq;
 using System.Web;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
 
 namespace AssignmentSite.DAL
 {
@@ -14,6 +16,9 @@ namespace AssignmentSite.DAL
         {
             string connStr = @"Provider=Microsoft.ACE.OLEDB.12.0;data source=" +
                 System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/pasteDB.accdb");
+
+            //string connStr = @"Provider=Microsoft.ACE.OLEDB.12.0;data source=" +
+            //    @"..\pasteDB.accdb";
 
             try
             {
