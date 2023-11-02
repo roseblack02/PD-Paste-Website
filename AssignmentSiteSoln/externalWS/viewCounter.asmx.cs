@@ -24,7 +24,7 @@ namespace externalWS
             int views = 0;
 
             string connStr = @"Provider=Microsoft.ACE.OLEDB.12.0;data source=" +
-                Path.GetFullPath("../AssignmentSite/App_Data/PasteDB.accdb");
+                System.Web.Hosting.HostingEnvironment.MapPath(@"~\..\AssignmentSite\App_Data\pasteDB.accdb");
 
             OleDbConnection conn = new OleDbConnection(connStr);
             conn.Open();
@@ -50,7 +50,7 @@ namespace externalWS
             int views = getViews(id) +1;
 
             string connStr = @"Provider=Microsoft.ACE.OLEDB.12.0;data source=" +
-                Path.GetFullPath("../AssignmentSite/App_Data/PasteDB.accdb");
+                System.Web.Hosting.HostingEnvironment.MapPath(@"~\..\AssignmentSite\App_Data\pasteDB.accdb");
 
             OleDbConnection conn = new OleDbConnection(connStr);
             conn.Open();
