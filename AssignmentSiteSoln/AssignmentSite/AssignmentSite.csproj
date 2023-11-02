@@ -83,6 +83,7 @@
     <Content Include="images\tomPart.png" />
     <Content Include="javaScript\JavaScript.js" />
     <Content Include="login.aspx" />
+    <Content Include="secure\cart.aspx" />
     <Content Include="viewCounter.asmx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -92,6 +93,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <Content Include="secure\Web.config" />
     <None Include="Web References\refViewCounter\viewCounter.disco" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
@@ -141,6 +143,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="secure\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="secure\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewCounter.asmx.cs">
       <DependentUpon>viewCounter.asmx</DependentUpon>
