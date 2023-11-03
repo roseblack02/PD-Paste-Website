@@ -33,7 +33,7 @@ namespace AssignmentSite.articles
 
                 int views = viewCounter.updateViews(id);
 
-                lblViews.Text = "views: " + views.ToString();
+                lblViews.Text = "Views: " + views.ToString();
                 lblDate.Text = "Date: " + articleInfo[4].ToString();
             }
                 

@@ -6,6 +6,7 @@
 
 h1 {
     display: block;
+    margin-top:1%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -46,29 +47,48 @@ h1 {
     display: block;
     margin-right: auto;
     margin-left: auto;
-    width: 10%;
+    width: 25%;
 }
 
 /*home*/
 .columns {
     margin: auto;
-    width: 100%;
+    width: 50%;
     padding: 1%;
 }
 
 /*articles*/
-.mainImage {
-    max-width: 50%;
-    position: relative;
-    margin: auto auto 2% auto;
-}
-
-.title {
+#article {
     display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
-    font-size: large;
+    width: 50%;
+}
+
+.mainImage {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 100%;
+}
+
+#articleInfo {
+    text-align:left;
+}
+
+.views{
+    display:block;
+}
+
+.date {
+    display: block;
+}
+
+#articleText {
+    margin-top: 1%;
+    margin-bottom: 10%;
+    width: 100%;
 }
 /*For carousel*/
 /* universal */
@@ -173,6 +193,20 @@ h1 {
         height: 10px;
         width: 10px;
     }
+
+    #article{
+        width:500px;
+    }
+}
+
+@media screen and (max-width:600px) and (min-width: 251px) {
+    .logout {
+        width: 100px;
+    }
+
+    #article {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 250px) {
@@ -192,4 +226,13 @@ h1 {
         height: 5px;
         width: 5px;
     }
+
+    .logout {
+        width: 90px;
+    }
+
+    #article {
+        width: 200px;
+    }
+
 }
