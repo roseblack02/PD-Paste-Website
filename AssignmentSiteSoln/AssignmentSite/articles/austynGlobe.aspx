@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="austynGlobe.aspx.cs" Inherits="AssignmentSite.articles.austynGlobe" %>
+﻿<%@ Page Title="Austyn Gillette's New Part For Globe" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="austynGlobe.aspx.cs" Inherits="AssignmentSite.articles.austynGlobe" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

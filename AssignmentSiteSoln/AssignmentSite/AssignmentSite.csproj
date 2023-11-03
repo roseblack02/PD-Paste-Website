@@ -71,10 +71,14 @@
     <Content Include="App_Data\pasteDB.accdb" />
     <Content Include="articles\arinPro.aspx" />
     <Content Include="articles\austynGlobe.aspx" />
+    <Content Include="articles\cooperPart.aspx" />
     <Content Include="articles\girl30.aspx" />
+    <Content Include="articles\leoShoe.aspx" />
+    <Content Include="articles\rowanShoe.aspx" />
     <Content Include="articles\shagPro.aspx" />
     <Content Include="articles\tomPart.aspx" />
     <Content Include="css\styles.css" />
+    <Content Include="Global.asax" />
     <Content Include="images\arinPro.png" />
     <Content Include="images\austynGlobe.png" />
     <Content Include="images\cooperPart.png" />
@@ -128,12 +132,33 @@
     <Compile Include="articles\austynGlobe.aspx.designer.cs">
       <DependentUpon>austynGlobe.aspx</DependentUpon>
     </Compile>
+    <Compile Include="articles\cooperPart.aspx.cs">
+      <DependentUpon>cooperPart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articles\cooperPart.aspx.designer.cs">
+      <DependentUpon>cooperPart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="articles\girl30.aspx.cs">
       <DependentUpon>girl30.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="articles\girl30.aspx.designer.cs">
       <DependentUpon>girl30.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articles\leoShoe.aspx.cs">
+      <DependentUpon>leoShoe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articles\leoShoe.aspx.designer.cs">
+      <DependentUpon>leoShoe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articles\rowanShoe.aspx.cs">
+      <DependentUpon>rowanShoe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articles\rowanShoe.aspx.designer.cs">
+      <DependentUpon>rowanShoe.aspx</DependentUpon>
     </Compile>
     <Compile Include="articles\shagPro.aspx.cs">
       <DependentUpon>shagPro.aspx</DependentUpon>
@@ -148,6 +173,9 @@
     </Compile>
     <Compile Include="articles\tomPart.aspx.designer.cs">
       <DependentUpon>tomPart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

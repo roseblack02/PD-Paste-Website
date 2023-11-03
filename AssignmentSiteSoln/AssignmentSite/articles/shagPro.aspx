@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="shagPro.aspx.cs" Inherits="AssignmentSite.articles.shagPro" %>
+﻿<%@ Page Title="Shag Is Now Pro For There Skatebaords" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="shagPro.aspx.cs" Inherits="AssignmentSite.articles.shagPro" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
