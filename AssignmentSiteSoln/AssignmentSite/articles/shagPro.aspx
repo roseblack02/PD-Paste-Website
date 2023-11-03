@@ -13,8 +13,13 @@
 
         <div id="articleText">
             <p>
-                For the new drop, THERE partnered with Rewina Beshue for a limited run of decks for Kien, Marbie, and NEW PRO – Shag. Rewina Beshue is a San Francisco-born artist, illustrator, and skater.
+                With his first debut in “Euro There” released in 2020 and a fun, stylish part in the 2022 video “Ruining Skateboarding”, Shag has now been turned pro for There Skateboards. His first board will be a part of a guest artist series with Rewina Beshue. 
             </p>
         </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
 </asp:Content>

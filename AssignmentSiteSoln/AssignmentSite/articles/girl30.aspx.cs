@@ -1,20 +1,20 @@
-﻿using System;
+﻿using AssignmentSite.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AssignmentSite.BLL;
 
 namespace AssignmentSite.articles
 {
-    public partial class shagPro : System.Web.UI.Page
+    public partial class girl30 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                int id = 1;
+                int id = 4;
 
                 Article article = new Article();
                 String[] articleInfo = article.getArticle(id);
@@ -38,7 +38,6 @@ namespace AssignmentSite.articles
                 lblViews.Text = "Views: " + views.ToString();
                 lblDate.Text = "Date: " + articleInfo[4].ToString();
             }
-                
         }
     }
 }
