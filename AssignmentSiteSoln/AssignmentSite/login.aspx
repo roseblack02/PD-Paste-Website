@@ -4,9 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <h1>Login</h1>
+        <div id="loginControls">
+            <asp:Login runat="server" ID="lgLogin" OnAuthenticate="lgLogin_Authenticate" CssClass="login" BorderColor="#0A1128" BorderStyle="None" ForeColor="#0A1128" LoginButtonText="Login" TitleText="Login">
+                <LabelStyle ForeColor="#0A1128" />
+                <LoginButtonStyle BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" />
+                <TextBoxStyle BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" />
+                <TitleTextStyle ForeColor="#0A1128" />
+            </asp:Login>
 
-        <asp:Login runat="server" ID="lgLogin" OnAuthenticate="lgLogin_Authenticate" CssClass="login"></asp:Login>
-
-        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" Visible="False" />
+            <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" Visible="False" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="logout" ForeColor="#0A1128" />
+        </div>
     </div>
 </asp:Content>
