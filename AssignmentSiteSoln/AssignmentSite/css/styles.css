@@ -74,6 +74,11 @@ h2 {
     margin:auto;
 }
 
+.columnControls {
+    display: inline;
+    margin: auto 12% auto 12%;
+}
+
 .columns {
     margin: 1% 1% 10% 1%;
     width: 46%;

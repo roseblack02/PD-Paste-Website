@@ -60,8 +60,8 @@
 
     <div id="content" >
         <div id="singleColumnControls">
-            <asp:Button ID="btnPopular" runat="server" Text="Sort By Popular" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="columnControls" ForeColor="#0A1128" OnClientClick="showPopular(); return false;"/>
-            <asp:Button ID="btnLatest" runat="server" Text="Sort By Latest" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="columnControls" ForeColor="#0A1128" OnClientClick="showLatest(); return false;"/>
+            <asp:Button ID="btnPopular" runat="server" Text="Sort By Popular" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="columnControls" ForeColor="#0A1128" OnClientClick="showPopular(); return false;" Width="49%"/>
+            <asp:Button ID="btnLatest" runat="server" Text="Sort By Latest" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="columnControls" ForeColor="#0A1128" OnClientClick="showLatest(); return false;" Width="49%"/>
         </div>
 
         <div class="columns" id="popular" >
