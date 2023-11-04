@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about.aspx" />
     <Content Include="admin\admin.aspx" />
     <Content Include="App_Data\pasteDB.accdb" />
     <Content Include="articles\arinPro.aspx" />
@@ -82,7 +83,9 @@
     <Content Include="images\arinPro.png" />
     <Content Include="images\austynGlobe.png" />
     <Content Include="images\cooperPart.png" />
+    <Content Include="images\fb.png" />
     <Content Include="images\girl30.png" />
+    <Content Include="images\ig.png" />
     <Content Include="images\leoShoe.png" />
     <Content Include="images\pasteLogoFilled.png" />
     <Content Include="images\rowanShoe.png" />
@@ -107,6 +110,13 @@
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

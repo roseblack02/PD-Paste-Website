@@ -8,7 +8,7 @@
 
     <!--css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css?parameter=1" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="~/css/styles.css?Version=1" rel="stylesheet" />
+    <link href="~/css/styles.css?Version=1?parameter=1" rel="stylesheet" />
 
     <!--js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js?parameter=1" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -50,7 +50,7 @@
                                     <asp:HyperLink ID="hlhome" runat="server" NavigateUrl="/index.aspx" CssClass="nav-link">Home</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:HyperLink ID="hlAbout" runat="server" NavigateUrl="/index.aspx" CssClass="nav-link">About</asp:HyperLink>
+                                    <asp:HyperLink ID="hlAbout" runat="server" NavigateUrl="/about.aspx" CssClass="nav-link">About</asp:HyperLink>
                                 </li>
                              
                                 <!--drop down-->
@@ -80,7 +80,7 @@
             <div id="footer">
                 <p style="padding:1%;">© 2023 Paste Skate Mag</p>
                 <a href="#top" style="padding:1%;">Back to top</a>
-                <p style="padding:1%;"><asp:HyperLink ID="hlContact" runat="server" NavigateUrl="~/index.aspx" >Contact Us</asp:HyperLink></p>
+                <p style="padding:1%;"><asp:HyperLink ID="hlContact" runat="server" NavigateUrl="~/about.aspx" >Contact Us</asp:HyperLink></p>
             </div>
         </div>
     </form>

@@ -100,6 +100,23 @@ h1 {
     margin-bottom: 1%;
     width: 100%;
 }
+
+/*about*/
+.socialMediaLinks {
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.socialMedia {
+    display: inline;
+    float: left;
+    margin:auto 12% auto 12%;
+}
+
 /*For carousel*/
 /* universal */
 * {
