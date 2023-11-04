@@ -12,6 +12,14 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    display: block;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 /*master page*/
 .logo {
     width:15%;
@@ -51,11 +59,47 @@ h1 {
 }
 
 /*home*/
-.columns {
-    margin: auto;
+#content{
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
-    padding: 1%;
 }
+
+#singleColumnControls {
+    width: 100%;
+    display: none;
+    margin:auto;
+}
+
+.columns {
+    margin: 1% 1% 10% 1%;
+    width: 46%;
+    float: left;
+}
+
+.imageWithCaption {
+    width: 100%;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    margin: 1.5%;
+    border: solid;
+    border-width: 1px;
+    border-color: #0A1128;
+}
+
+.caption {
+    display: block;
+}
+
+.imageWithCaption:hover .image {
+    opacity: 0.3;
+    transition: .3s ease;
+}
+
 
 /*articles*/
 #article {
@@ -115,6 +159,11 @@ h1 {
     display: inline;
     float: left;
     margin:auto 12% auto 12%;
+}
+
+.socialMedia:hover {
+    opacity: 0.3;
+    transition: .3s ease;
 }
 
 /*For carousel*/
@@ -201,17 +250,15 @@ h1 {
 
 
 /*responsive*/
-@media screen and (max-width: 950px) and (min-width: 251px) {
+@media screen and (max-width: 990px) and (min-width: 251px) {
     .logo {
         width: 150px;
     }
 
     body {
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
-}
 
-@media screen and (max-width: 950px) and (min-width: 251px) {
     .slideshow-container, .mainImage {
         max-width: 80%;
     }
@@ -223,6 +270,18 @@ h1 {
 
     #article{
         width:500px;
+    }
+
+    #content {
+        width: 80%;
+    }
+
+    .columns {
+        width:100%;
+    }
+
+    #singleColumnControls {
+        display: block;
     }
 }
 
@@ -260,6 +319,18 @@ h1 {
 
     #article {
         width: 200px;
+    }
+
+    #content {
+        width: 200px;
+    }
+
+    .columns {
+        width: 200px;
+    }
+
+    #singleColumnControls {
+        display: block;
     }
 
 }

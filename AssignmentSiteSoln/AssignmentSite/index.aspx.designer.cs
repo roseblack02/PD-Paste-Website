@@ -105,6 +105,24 @@ namespace AssignmentSite
         protected global::System.Web.UI.WebControls.Label lblFeatured5;
 
         /// <summary>
+        /// btnPopular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPopular;
+
+        /// <summary>
+        /// btnLatest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLatest;
+
+        /// <summary>
         /// lvPopular control.
         /// </summary>
         /// <remarks>

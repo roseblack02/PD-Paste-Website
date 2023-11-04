@@ -39,5 +39,10 @@ namespace AssignmentSite
                 lblFeatured5.Text = featured[4][0];
             }
         }
+
+        protected void lvPopular_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

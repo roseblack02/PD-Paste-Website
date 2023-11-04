@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="AssignmentSite.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Home</h1>
@@ -55,319 +56,212 @@
 
         <br />
         <br />
-        <table align="center" class="w-50" id="tblArticles" >
-            <tr>
-                <td>
-                    <div class="columns">
-                    <h2>Popular</h2>
-
-                    <asp:ListView ID="lvPopular" runat="server" DataSourceID="SqlDataSource1">
-                        <AlternatingItemTemplate>
-                            <span  class="card " style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </AlternatingItemTemplate>
-                        <EditItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </EditItemTemplate>
-                        <EmptyDataTemplate>
-                            <span>No data was returned.</span>
-                        </EmptyDataTemplate>
-                        <InsertItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </ItemTemplate>
-                        <LayoutTemplate>
-                            <div id="itemPlaceholderContainer" runat="server" style="">
-                                <span runat="server" id="itemPlaceholder" />
-                            </div>
-                            <div style="">
-                            </div>
-                        </LayoutTemplate>
-                        <SelectedItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </SelectedItemTemplate>
-                    </asp:ListView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Title], [Category], [ImageURL], [Views], [DatePublished], [Link] FROM [tblArticle] ORDER BY [Views] DESC"></asp:SqlDataSource>
-                </div>
-                </td>
-
-                <td>
-                    <div class="columns">
-                    <h2 >Latest</h2>
-                    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource2">
-                        <AlternatingItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </AlternatingItemTemplate>
-                        <EditItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </EditItemTemplate>
-                        <EmptyDataTemplate>
-                            <span>No data was returned.</span>
-                        </EmptyDataTemplate>
-                        <InsertItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </ItemTemplate>
-                        <LayoutTemplate>
-                            <div id="itemPlaceholderContainer" runat="server" style="">
-                                <span runat="server" id="itemPlaceholder" />
-                            </div>
-                            <div style="">
-                            </div>
-                        </LayoutTemplate>
-                        <SelectedItemTemplate>
-                            <span  class="card" style="width: 18rem;">
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ImageURL") %>' PostBackUrl='<%# Eval("Link") %>' CssClass="card-img-top" />
-
-                                <div class="card-body">
-                                    <asp:Label ID="TitleLabel1" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"/>
-                                </div>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Category: 
-                                        <asp:Label ID="CategoryLabel1" runat="server" Text='<%# Eval("Category") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Views: 
-                                        <asp:Label ID="ViewsLabel1" runat="server" Text='<%# Eval("Views") %>'/>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        Date: 
-                                        <asp:Label ID="DatePublishedLabel1" runat="server" Text='<%# Eval("DatePublished") %>'/>
-                                    </li>    
-                                </ul>
-                                <br/>
-                            </span>
-                        </SelectedItemTemplate>
-                    </asp:ListView>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblArticle] ORDER BY [DatePublished] DESC"></asp:SqlDataSource>
-                </div>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
     </div>
+
+    <div id="content" >
+        <div id="singleColumnControls">
+            <asp:Button ID="btnPopular" runat="server" Text="Sort By Popular" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="columnControls" ForeColor="#0A1128" OnClientClick="showPopular(); return false;"/>
+            <asp:Button ID="btnLatest" runat="server" Text="Sort By Latest" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" CssClass="columnControls" ForeColor="#0A1128" OnClientClick="showLatest(); return false;"/>
+        </div>
+
+        <div class="columns" id="popular" >
+            <h2>Popular</h2>
+
+            <asp:ListView ID="lvPopular" runat="server" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="lvPopular_SelectedIndexChanged">
+                <AlternatingItemTemplate>
+
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </AlternatingItemTemplate>
+                <EditItemTemplate>
+
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </EditItemTemplate>
+                <EmptyDataTemplate>
+                    <span>No data was returned.</span>
+                </EmptyDataTemplate>
+                <InsertItemTemplate>
+
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </InsertItemTemplate>
+                <ItemTemplate>
+                            
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <div id="itemPlaceholderContainer" runat="server" style="">
+                        <span runat="server" id="itemPlaceholder" />
+                    </div>
+                    <div style="">
+                    </div>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                            
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </SelectedItemTemplate>
+            </asp:ListView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Title], [Category], [ImageURL], [Views], [DatePublished], [Link] FROM [tblArticle] ORDER BY [Views] DESC"></asp:SqlDataSource>
+        </div>
+
+
+
+        <div class="columns" id="latest">
+            <h2>Latest</h2>
+            <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource2">
+                <AlternatingItemTemplate>
+                             
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </AlternatingItemTemplate>
+                <EditItemTemplate>
+                             
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </EditItemTemplate>
+                <EmptyDataTemplate>
+                    <span>No data was returned.</span>
+                </EmptyDataTemplate>
+                <InsertItemTemplate>
+                             
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </InsertItemTemplate>
+                <ItemTemplate>
+                             
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <div id="itemPlaceholderContainer" runat="server" style="">
+                        <span runat="server" id="itemPlaceholder" />
+                    </div>
+                    <div style="">
+                    </div>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                             
+                    <div class="imageWithCaption">
+                        <asp:ImageButton ID="imbArticle" runat="server" ImageUrl='<%# Eval("ImageURL") %>' Width="100%" CssClass="image" AlternateText='<%# Eval("Title") %>' PostBackUrl='<%# Eval("Link") %>' />
+                        <span class="caption">
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>'/>
+                            <br />
+                            Views: 
+                            <asp:Label ID="lblViews" runat="server" Text='<%# Eval("Views") %>'/>
+                            <br/>
+                            Date: 
+                            <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DatePublished") %>'/>
+                        </span>
+                    </div>
+
+                </SelectedItemTemplate>
+            </asp:ListView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblArticle] ORDER BY [DatePublished] DESC"></asp:SqlDataSource>
+        </div>
+    </div>
+
+    <br />
+    <br />
 </asp:Content>
