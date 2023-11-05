@@ -23,9 +23,9 @@ namespace AssignmentSite
         {
             //list containing exhange rates in order of GBP, USD, EUR
             //GBP is base currency
-            double[] exchangeRates = {1,1.24,1.15};
+            double[] exchangeRates = { 1, 1.24, 1.15 };
 
-            return price*exchangeRates[currency];
+            return price * exchangeRates[currency];
         }
 
         protected void ddlCurrency_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,26 +41,31 @@ namespace AssignmentSite
                 int currency = ddlCurrency.SelectedIndex;
 
                 //find labels
-                Label lblInStock = (Label)item.FindControl("lblInStock");
-                Label lblStockNum = (Label)item.FindControl("lblStockNum");
                 Label lblPrice = (Label)item.FindControl("lblPrice");
                 Label lblCost = (Label)item.FindControl("lblCost");
                 Label lblID = (Label)item.FindControl("lblID");
 
                 //get id, stock, and price
                 int id = Convert.ToInt32(lblID.Text);
-                String stock = lblStockNum.Text;
                 double cost = Convert.ToDouble(product.getProduct(id)[3]);
-
-                //get stock number and price
-                /*DataRowView rowView = item.DataItem as DataRowView;
-                String stock = rowView["Stock"].ToString();
-                double cost = Convert.ToDouble(rowView["Price"]);
-                */
 
                 //convert cost
                 lblCost.Text = convertCurrency(cost, currency).ToString();
                 lblPrice.Text = "Price: " + symbols[currency];
+            }
+        }
+
+        protected void lvShop_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            //check if items is out of stock
+            if (e.Item.ItemType == ListViewItemType.DataItem)
+            {
+                //find label
+                Label lblInStock = (Label)e.Item.FindControl("lblInStock");
+
+                //get stock number
+                System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
+                String stock = rowView["Stock"].ToString();
 
                 //if stock is 0 then set label to out of stock
                 if (stock == "0")
@@ -68,6 +73,8 @@ namespace AssignmentSite
                     lblInStock.Text = "Out Of Stock";
                 }
             }
+
+
         }
     }
 }

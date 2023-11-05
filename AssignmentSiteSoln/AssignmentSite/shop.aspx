@@ -11,7 +11,7 @@
             <asp:ListItem>EUR</asp:ListItem>
         </asp:DropDownList>
 
-        <asp:ListView ID="lvShop" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" GroupItemCount="3">
+        <asp:ListView ID="lvShop" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" GroupItemCount="3" OnItemDataBound="lvShop_ItemDataBound">
             <AlternatingItemTemplate>
 
                 <div class="imageWithCaption product">
