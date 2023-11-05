@@ -7,7 +7,7 @@
     <div id="article">
         <div id="articleText">
             <p>
-            Paste Skateboard Magazine is a magazine founded in 2009 based in Belfast. 
+            Paste Skateboard Magazine is a magazine founded in 2022 based in Belfast. 
             </p>
             <br/>
 

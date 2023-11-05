@@ -86,7 +86,11 @@
     <Content Include="images\cooperPart.png" />
     <Content Include="images\fb.png" />
     <Content Include="images\girl30.png" />
+    <Content Include="images\handPrinted.png" />
     <Content Include="images\ig.png" />
+    <Content Include="images\issue1square.png" />
+    <Content Include="images\issue2square.png" />
+    <Content Include="images\issue3square.png" />
     <Content Include="images\leoShoe.png" />
     <Content Include="images\pasteLogoFilled.png" />
     <Content Include="images\rowanShoe.png" />
@@ -97,6 +101,7 @@
     <Content Include="login.aspx" />
     <Content Include="news.aspx" />
     <Content Include="secure\cart.aspx" />
+    <Content Include="shop.aspx" />
     <Content Include="videos.aspx" />
     <Content Include="viewCounter.asmx" />
     <None Include="Properties\Settings.settings">
@@ -237,6 +242,13 @@
     </Compile>
     <Compile Include="secure\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="videos.aspx.cs">
       <DependentUpon>videos.aspx</DependentUpon>

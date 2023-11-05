@@ -34,6 +34,7 @@ h2 {
     clear: both;
     background-color: #92BFD4;
     text-align: center;
+    width: 100%;
 }
 
 /*login page*/
@@ -91,7 +92,7 @@ h2 {
     display: inline-block;
     text-align: center;
     margin: 1.5%;
-    border: solid;
+    border: none;
     border-width: 1px;
     border-color: #0A1128;
 }
@@ -164,6 +165,11 @@ h2 {
     display: inline;
     float: left;
     margin:auto 12% auto 12%;
+}
+
+/*shop*/
+.product{
+    width:47%
 }
 
 .socialMedia:hover {
@@ -288,6 +294,10 @@ h2 {
     #singleColumnControls {
         display: block;
     }
+
+    .product {
+        width: 100%
+    }
 }
 
 @media screen and (max-width:600px) and (min-width: 251px) {
@@ -338,4 +348,7 @@ h2 {
         display: block;
     }
 
+    .product {
+        width: 100%
+    }
 }
