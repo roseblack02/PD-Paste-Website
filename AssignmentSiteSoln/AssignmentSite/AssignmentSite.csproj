@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,6 +145,7 @@
     <Compile Include="App_Code\BLL\Account.cs" />
     <Compile Include="App_Code\BLL\Article.cs" />
     <Compile Include="App_Code\BLL\Articles.cs" />
+    <Compile Include="App_Code\BLL\Product.cs" />
     <Compile Include="App_Code\DAL\DataAccess.cs" />
     <Compile Include="articles\arinPro.aspx.cs">
       <DependentUpon>arinPro.aspx</DependentUpon>

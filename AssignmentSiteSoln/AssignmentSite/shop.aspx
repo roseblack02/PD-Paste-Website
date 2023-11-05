@@ -3,9 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Shop</h1>
-    
+
     <div id="content">
-        <asp:ListView ID="lvShop" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" GroupItemCount="3" OnItemDataBound="lvShop_ItemDataBound">
+        <asp:DropDownList ID="ddlCurrency" runat="server" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlCurrency_SelectedIndexChanged" AutoPostBack="True">
+            <asp:ListItem>GBP</asp:ListItem>
+            <asp:ListItem>USD</asp:ListItem>
+            <asp:ListItem>EUR</asp:ListItem>
+        </asp:DropDownList>
+
+        <asp:ListView ID="lvShop" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" GroupItemCount="3">
             <AlternatingItemTemplate>
 
                 <div class="imageWithCaption product">
@@ -18,6 +24,8 @@
                         <br/>
                         <asp:Label ID="lblInStock" runat="server" Text="In Stock"></asp:Label>
                         <asp:Label ID="lblStockNum" runat="server" Text='<%# Eval("Stock") %>' Visible="False" />
+
+                        <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID") %>' Visible="False" />
                     </span>
                 </div>
 
@@ -34,6 +42,8 @@
                         <br/>
                         <asp:Label ID="lblInStock" runat="server" Text="In Stock"></asp:Label>
                         <asp:Label ID="lblStockNum" runat="server" Text='<%# Eval("Stock") %>' Visible="False" />
+                        
+                        <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID") %>' Visible="False" />
                     </span>
                 </div>
 
@@ -65,6 +75,8 @@
                         <br/>
                         <asp:Label ID="lblInStock" runat="server" Text="In Stock"></asp:Label>
                         <asp:Label ID="lblStockNum" runat="server" Text='<%# Eval("Stock") %>' Visible="False" />
+                        
+                        <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID") %>' Visible="False" />
                     </span>
                 </div>
 
@@ -81,6 +93,8 @@
                         <br/>
                         <asp:Label ID="lblInStock" runat="server" Text="In Stock"></asp:Label>
                         <asp:Label ID="lblStockNum" runat="server" Text='<%# Eval("Stock") %>' Visible="False" />
+                        
+                        <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID") %>' Visible="False" />
                     </span>
                 </div>
 
@@ -112,6 +126,8 @@
                         <br/>
                         <asp:Label ID="lblInStock" runat="server" Text="In Stock"></asp:Label>
                         <asp:Label ID="lblStockNum" runat="server" Text='<%# Eval("Stock") %>' Visible="False" />
+                        
+                        <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID") %>' Visible="False" />
                     </span>
                 </div>
 

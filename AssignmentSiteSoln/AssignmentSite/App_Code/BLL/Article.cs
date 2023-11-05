@@ -8,8 +8,13 @@ namespace AssignmentSite.BLL
 {
     public class Article
     {
-        private String title, category, image, date;
+        private String title, category, image, date, link;
         private int views, id;
+
+        public Article()
+        {
+
+        }
 
         //set and get title
         public void setTitle(String title)
@@ -20,6 +25,17 @@ namespace AssignmentSite.BLL
         public string getTitle()
         {
             return title;
+        }
+
+        //set and get link
+        public void setLink(String link)
+        {
+            this.link = link;
+        }
+
+        public string getLink()
+        {
+            return link;
         }
 
         //set and get category

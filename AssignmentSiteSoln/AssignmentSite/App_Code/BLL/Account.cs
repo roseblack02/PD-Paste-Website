@@ -11,6 +11,11 @@ namespace AssignmentSite.BLL
         private String username, password;
         private int id;
 
+        public Account()
+        {
+
+        }
+
         //set and get username
         public void setUsername(String username)
         {

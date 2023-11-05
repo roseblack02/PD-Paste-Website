@@ -175,3 +175,5 @@ D:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.c
 D:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.csproj.CopyComplete
 D:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.dll
 D:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.pdb
+C:\Users\rhysb\Desktop\FDSE Projects\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\bin\Newtonsoft.Json.dll
+C:\Users\rhysb\Desktop\FDSE Projects\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\bin\Newtonsoft.Json.xml

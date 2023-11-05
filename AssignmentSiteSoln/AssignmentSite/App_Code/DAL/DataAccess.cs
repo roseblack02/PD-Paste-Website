@@ -225,5 +225,34 @@ namespace AssignmentSite.DAL
                 return false;
             }
         }
+
+        //get product by id
+        public static String[] getProductByID(int id)
+        {
+            OleDbConnection conn = openConnection();
+            string sqlStr = "SELECT * FROM tblProduct WHERE ID=" + id;
+
+            OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            String name = "", image = "", link = "";
+            int stock = 0;
+            double price = 0;
+
+            while (reader.Read())
+            {
+                name = reader["ProductName"].ToString();
+                image = reader["ImageURL"].ToString();
+                stock = Convert.ToInt32(reader["Stock"]);
+                link = reader["Link"].ToString();
+                price = Convert.ToDouble(reader["Price"]);
+            }
+            reader.Close();
+            conn.Close();
+
+            string[] details = { name, image, stock.ToString(), price.ToString(), link };
+
+            return details;
+        }
     }
 }
