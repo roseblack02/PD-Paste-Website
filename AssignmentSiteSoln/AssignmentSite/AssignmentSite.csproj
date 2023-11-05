@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="about.aspx" />
     <Content Include="admin\admin.aspx" />
+    <Content Include="allArticles.aspx" />
     <Content Include="App_Data\pasteDB.accdb" />
     <Content Include="articles\arinPro.aspx" />
     <Content Include="articles\austynGlobe.aspx" />
@@ -94,7 +95,9 @@
     <Content Include="images\tomPart.png" />
     <Content Include="javaScript\JavaScript.js" />
     <Content Include="login.aspx" />
+    <Content Include="news.aspx" />
     <Content Include="secure\cart.aspx" />
+    <Content Include="videos.aspx" />
     <Content Include="viewCounter.asmx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,6 +126,13 @@
     </Compile>
     <Compile Include="admin\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="allArticles.aspx.cs">
+      <DependentUpon>allArticles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="allArticles.aspx.designer.cs">
+      <DependentUpon>allArticles.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\BLL\Account.cs" />
     <Compile Include="App_Code\BLL\Article.cs" />
@@ -201,6 +211,13 @@
     <Compile Include="masterPage.Master.designer.cs">
       <DependentUpon>masterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="news.aspx.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news.aspx.designer.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -220,6 +237,13 @@
     </Compile>
     <Compile Include="secure\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="videos.aspx.cs">
+      <DependentUpon>videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="videos.aspx.designer.cs">
+      <DependentUpon>videos.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewCounter.asmx.cs">
       <DependentUpon>viewCounter.asmx</DependentUpon>

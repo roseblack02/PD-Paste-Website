@@ -59,9 +59,9 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <asp:HyperLink ID="hlAll" runat="server" NavigateUrl="/index.aspx" CssClass="dropdown-item">All</asp:HyperLink>
-                                        <asp:HyperLink ID="hlNews" runat="server" NavigateUrl="/index.aspx" CssClass="dropdown-item">News</asp:HyperLink>
-                                        <asp:HyperLink ID="hlVideos" runat="server" NavigateUrl="/index.aspx" CssClass="dropdown-item">Videos</asp:HyperLink>
+                                        <asp:HyperLink ID="hlAll" runat="server" NavigateUrl="/allArticles.aspx" CssClass="dropdown-item">All</asp:HyperLink>
+                                        <asp:HyperLink ID="hlNews" runat="server" NavigateUrl="/news.aspx" CssClass="dropdown-item">News</asp:HyperLink>
+                                        <asp:HyperLink ID="hlVideos" runat="server" NavigateUrl="/videos.aspx" CssClass="dropdown-item">Videos</asp:HyperLink>
                                     </ul>
                                 </li>
 
