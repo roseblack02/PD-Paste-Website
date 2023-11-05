@@ -103,6 +103,7 @@
     <Content Include="javaScript\JavaScript.js" />
     <Content Include="login.aspx" />
     <Content Include="news.aspx" />
+    <Content Include="products\issue1.aspx" />
     <Content Include="secure\cart.aspx" />
     <Content Include="shop.aspx" />
     <Content Include="videos.aspx" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="news.aspx.designer.cs">
       <DependentUpon>news.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\issue1.aspx.cs">
+      <DependentUpon>issue1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\issue1.aspx.designer.cs">
+      <DependentUpon>issue1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">

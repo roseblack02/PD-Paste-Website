@@ -5,7 +5,7 @@
     <h1>Shop</h1>
 
     <div id="content">
-        <asp:DropDownList ID="ddlCurrency" runat="server" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlCurrency_SelectedIndexChanged" AutoPostBack="True">
+        <asp:DropDownList ID="ddlCurrency" runat="server" style="border-radius: 5px;" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlCurrency_SelectedIndexChanged" AutoPostBack="True">
             <asp:ListItem>GBP</asp:ListItem>
             <asp:ListItem>USD</asp:ListItem>
             <asp:ListItem>EUR</asp:ListItem>

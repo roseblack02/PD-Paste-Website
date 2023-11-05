@@ -78,6 +78,7 @@ h2 {
 .columnControls {
     display: inline;
     margin: auto;
+    border-radius: 5px;
 }
 
 .columns {
@@ -169,12 +170,41 @@ h2 {
 
 /*shop*/
 .product{
-    width:47%
+    width:47%;
 }
 
 .socialMedia:hover {
     opacity: 0.3;
     transition: .3s ease;
+}
+
+/*products*/
+.imgProduct {
+    width:90%;
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description {
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+    text-align:center;
+}
+
+.buttons {
+    width:30%;
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*For carousel*/

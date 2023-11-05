@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using AssignmentSite.App_Code.BLL;
+using AssignmentSite.BLL;
+
+namespace AssignmentSite.products
+{
+    public partial class issue1 : System.Web.UI.Page
+    {
+        public const int ID = 2;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                //load info from database
+                Product product = new Product();
+                String[] details = product.getProduct(ID);
+
+                //set info from database
+                imgProduct.ImageUrl = details[1];
+                imgProduct.AlternateText = details[0];
+                lblCost.Text = details[3];
+
+                //check quantity
+                if (!checkQuantity())
+                {
+                    lblInStock.Text = "Out of stock";
+                }
+                else
+                {
+                    lblInStock.Text = "In of stock";
+                }
+            }
+        }
+
+        public static double convertCurrency(double price, int currency)
+        {
+            //list containing exhange rates in order of GBP, USD, EUR
+            //GBP is base currency
+            double[] exchangeRates = { 1, 1.24, 1.15 };
+
+            return price * exchangeRates[currency];
+        }
+
+        protected void ddlCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Product product = new Product();
+
+            //list of currency symbols
+            String[] symbols = { "£", "$", "€" };
+
+            //get currency from drop down list
+            int currency = ddlCurrency.SelectedIndex;
+
+            //price
+            double cost = Convert.ToDouble(product.getProduct(ID)[3]);
+
+            //convert cost
+            lblCost.Text = convertCurrency(cost, currency).ToString();
+            lblPrice.Text = "Price: " + symbols[currency];
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            //only work if quantity is over 0
+            if (checkQuantity())
+            {
+                //check if there is already a cookie
+                if (Request.Cookies["cart"] == null)
+                {
+                    //create cookie
+                    HttpCookie objCookie = new HttpCookie("cart");
+
+                    String cookieItems = ID.ToString() + ",1";
+
+                    objCookie["items"] = cookieItems;
+
+                    //cookie lasts a month
+                    objCookie.Expires = DateTime.Now.AddMonths(1);
+
+                    Response.Cookies.Add(objCookie);
+
+                    lblOutput.Text = "Quantity updated. Item added to cart";
+                }
+                else
+                {
+                    //adding items to cart cookie
+                    //items are stored with the id and quantity. a / is the delimeter for each item
+
+                    //get items from cart and add them to a string
+                    String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
+
+                    Boolean inCart = false;
+
+                    //check if item is already in cart
+                    for (int i = 0; i < cartItems.Length; i++)
+                    {
+                        //split to get id (0) and quantity (1)
+                        String[] itemInfo = cartItems[i].Split(',');
+                        int quantity = Convert.ToInt32(itemInfo[1]);
+
+                        //if item is found then add to quantity
+                        if (itemInfo[0] == ID.ToString())
+                        {
+                            inCart = true;
+
+                            //check if there is enough stock
+                            Product product = new Product();
+                            String[] details = product.getProduct(ID);
+
+                            int stock = Convert.ToInt32(details[2]);
+
+                            quantity += 1;
+
+                            if (quantity > stock)
+                            {
+                                lblOutput.Text = "Quantity is too high. Item not added to cart";
+                            }
+                            else
+                            {
+                                cartItems[i] = itemInfo[0] + "," + quantity.ToString();
+
+                                lblOutput.Text = "Quantity updated. Item added to cart";
+                            }
+                        }
+                    }
+
+                    //add items back to cookie
+                    StringBuilder cookie = new StringBuilder();
+
+                    for (int j = 0; j<cartItems.Length;j++)
+                    {
+                        if(j<cartItems.Length-1)cookie.Append(cartItems[j] + "/");
+                    }
+
+                    //add new item if not in cart
+                    if (!inCart)
+                    {
+                        cookie.Append("/" + ID.ToString() + ",1");
+
+                        lblOutput.Text = "Item added to cart";
+                    }
+
+                    Request.Cookies["cart"]["items"] = cookie.ToString();
+                }
+            }
+            else
+            {
+                lblOutput.Text = "Item out of stock";
+            }
+        }
+
+        //check quantity
+        public Boolean checkQuantity()
+        {
+            Product product = new Product();
+            String[] details = product.getProduct(ID);
+
+            //check if item is in stock
+            if (details[2] == "0")
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+}

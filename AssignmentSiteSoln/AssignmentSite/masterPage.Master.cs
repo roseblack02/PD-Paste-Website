@@ -26,6 +26,32 @@ namespace AssignmentSite
                     lblUsername.Text = "You are not logged in";
                 }
             }
+
+            //check for cookie
+            if (Request.Cookies["cart"] != null)
+            {
+                //get total item count
+                String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
+
+                int totalItems = 0;
+
+                for(int i = 0; i < cartItems.Length; i++)
+                {
+                    String[] itemInfo = cartItems[i].Split(',');
+                    int quantity = Convert.ToInt32(itemInfo[1]);
+
+                    totalItems += quantity;
+                }
+
+                if (totalItems > 0)
+                {
+                    lblCart.Text = "Cart(" + totalItems.ToString() + ")";
+                }
+                else
+                {
+                    lblCart.Text = "Cart";
+                }
+            }
         }
     }
 }

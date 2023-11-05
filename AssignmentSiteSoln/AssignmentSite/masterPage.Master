@@ -69,7 +69,9 @@
                                     <asp:HyperLink ID="hlShop" runat="server" NavigateUrl="/shop.aspx" CssClass="nav-link">Shop</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="/secure/cart.aspx" CssClass="nav-link">Cart</asp:HyperLink>
+                                    <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="/secure/cart.aspx" CssClass="nav-link">
+                                        <asp:Label ID="lblCart" runat="server" Text="Cart"></asp:Label>
+                                    </asp:HyperLink>
                                 </li>
                             </ul>
                         </div>
