@@ -24,6 +24,7 @@ namespace AssignmentSite.secure
 
             // clear previous items
             this.pnlOrders.Controls.Clear();
+
             double totalCost = 0;
             int totalItems = 0;
             double shipping = 0;
@@ -35,8 +36,9 @@ namespace AssignmentSite.secure
             for (int i = 0; i < cartItems.Length; i++)
             {
                 //get item info
-                int id = Convert.ToInt32(cartItems[i].Split(',')[0]);
-                int quantity = Convert.ToInt32(cartItems[i].Split(',')[1]);
+                String[] item = cartItems[i].Split(',');
+                int id = Convert.ToInt32(item[0]);
+                int quantity = Convert.ToInt32(item[1]);
 
                 //string builder object to put items in as strings
                 StringBuilder sb = new StringBuilder();
@@ -73,9 +75,10 @@ namespace AssignmentSite.secure
             }
 
             //get shipping cost based on country
-            String country = getCountryName();
+            //String country = getCountryName();\
+            String country= "United Kingdom";
 
-            if(country=="United Kingdom")
+            if (country=="United Kingdom")
             {
                 shipping = 0;
                 strShipping = "Free UK shipping";

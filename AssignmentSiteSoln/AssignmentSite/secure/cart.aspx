@@ -58,4 +58,8 @@
         <asp:Button ID="btnPurchase" runat="server" OnClick="btnPurchase_Click" Text="Purchase" OnClientClick="return areyousurePurchase()" CssClass="buttons" style="border-radius: 5px;" Font-Size="1.2em" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" />
         <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" OnClientClick="return areyousure()" CssClass="buttons" style="border-radius: 5px;" Font-Size="1.2em" BackColor="#92BFD4" BorderColor="#0A1128" BorderStyle="Solid" ForeColor="#0A1128" />
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
 </asp:Content>

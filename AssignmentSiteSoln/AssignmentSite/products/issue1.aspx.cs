@@ -119,7 +119,7 @@ namespace AssignmentSite.products
                         }
 
                         //add info to string builder 
-                        cookie.Append(itemInfo[0] + "," + itemInfo[1] + "/");
+                        cookie.Append(itemInfo[0] + "," + itemQuantity.ToString() + "/");
                     }
 
                     //check if quantity available
@@ -128,25 +128,24 @@ namespace AssignmentSite.products
 
                     if (quantity > Convert.ToInt32(details[2]))
                     {
-                        //lblOutput.Text = "Item not added to cart. Quantity too high";
+                        lblOutput.Text = "Item not added to cart. Quantity too high";
                     }
                     else
                     {
-                        
+                        //add item to cart 
+                        if (inCart)
+                        {
+                            lblOutput.Text = "Quantity updated. Item added to cart";
+                        }
+                        else
+                        {
+                            //add new item
+                            cookie.Append("/" + ID.ToString() + "," + quantity.ToString());
+                            lblOutput.Text = "Item added to cart";
+                        }
                     }
 
-                    if (inCart)
-                    {
-                        lblOutput.Text = "Quantity updated. Item added to cart";
-                    }
-                    else
-                    {
-                        //add new item
-                        cookie.Append("/" + ID.ToString() + "," + quantity.ToString());
-                        lblOutput.Text = "Item added to cart";
-                    }
-
-                    Request.Cookies["cart"]["items"] = cookie.ToString();
+                    Response.Cookies["cart"]["items"] = cookie.ToString();
                 }
             }
             else
