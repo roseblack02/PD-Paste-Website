@@ -15,7 +15,6 @@ namespace AssignmentSite.secure
         protected void Page_Load(object sender, EventArgs e)
         {
             checkCookie();
-            lblTotalCost.Text= getCountryName();
         }
 
         public void loadCart()
@@ -27,7 +26,7 @@ namespace AssignmentSite.secure
             this.pnlOrders.Controls.Clear();
             double totalCost = 0;
             int totalItems = 0;
-            int shipping = 0;
+            double shipping = 0;
             String strShipping = "";
 
             String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
@@ -52,9 +51,8 @@ namespace AssignmentSite.secure
                 //get currency from drop down list
                 int currency = ddlCurrency.SelectedIndex;
 
-                //price
+                //convert price
                 double cost = convertCurrency(price, ddlCurrency.SelectedIndex);
-
 
                 Label itemLabel = new Label();
                 //itemLabel.CssClass = "cartInfo";
@@ -68,17 +66,32 @@ namespace AssignmentSite.secure
 
                 //count up cost and quantity
                 totalCost += (cost * quantity);
-                totalCost += shipping;
                 totalItems += quantity;
 
                 // add the item controls (labels) to the panel  
                 this.pnlOrders.Controls.Add(itemLabel);
             }
 
+            //get shipping cost based on country
+            String country = getCountryName();
+
+            if(country=="United Kingdom")
+            {
+                shipping = 0;
+                strShipping = "Free UK shipping";
+            }
+            else
+            {
+                shipping = convertCurrency(25, ddlCurrency.SelectedIndex);
+                strShipping = symbols[ddlCurrency.SelectedIndex] + shipping.ToString() + " International shipping fees to " + country;
+            }
+
+            totalCost += shipping;
+
             //show total items and cost
             this.lblOrderSummary.Text = totalItems + " items in your cart";
-            this.lblTotalCost.Text = "<br><br>Shipping : " + symbols[ddlCurrency.SelectedIndex] + strShipping;
-            this.lblTotalCost.Text = "<br>Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
+            this.lblShipping.Text = "<br><br>Shipping : " + strShipping;
+            this.lblTotalCost.Text = "Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
         }
 
         public static double convertCurrency(double price, int currency)
@@ -125,20 +138,6 @@ namespace AssignmentSite.secure
             checkCookie();
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            clear();
-        }
-
-        protected void btnPurchase_Click(object sender, EventArgs e)
-        {
-            //update quantity
-
-
-            //clear cart
-            clear();
-        }
-
         public void checkCookie()
         {
             //check for cookie
@@ -152,6 +151,20 @@ namespace AssignmentSite.secure
             {
                 loadCart();
             }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        protected void btnPurchase_Click(object sender, EventArgs e)
+        {
+            //update quantity
+
+
+            //clear cart
+            clear();
         }
 
         public void clear()
