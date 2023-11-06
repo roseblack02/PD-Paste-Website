@@ -88,64 +88,61 @@ namespace AssignmentSite.products
 
                     Response.Cookies.Add(objCookie);
 
-                    lblOutput.Text = "Quantity updated. Item added to cart";
+                    lblOutput.Text = "Item added to cart";
                 }
                 else
                 {
                     //adding items to cart cookie
                     //items are stored with the id and quantity. a / is the delimeter for each item
 
+                    StringBuilder cookie = new StringBuilder();
+
                     //get items from cart and add them to a string
                     String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
 
-                    Boolean inCart = false;
-
                     //check if item is already in cart
+                    Boolean inCart = false;
+                    int quantity = 1;
+
                     for (int i = 0; i < cartItems.Length; i++)
                     {
                         //split to get id (0) and quantity (1)
                         String[] itemInfo = cartItems[i].Split(',');
-                        int quantity = Convert.ToInt32(itemInfo[1]);
+                        int itemQuantity = Convert.ToInt32(itemInfo[1]);
 
-                        //if item is found then add to quantity
-                        if (itemInfo[0] == ID.ToString())
+                        //check if item already in cart
+                        if(itemInfo[0] == ID.ToString())
                         {
+                            //update quantity
+                            itemQuantity+=1;
                             inCart = true;
-
-                            //check if there is enough stock
-                            Product product = new Product();
-                            String[] details = product.getProduct(ID);
-
-                            int stock = Convert.ToInt32(details[2]);
-
-                            quantity += 1;
-
-                            if (quantity > stock)
-                            {
-                                lblOutput.Text = "Quantity is too high. Item not added to cart";
-                            }
-                            else
-                            {
-                                cartItems[i] = itemInfo[0] + "," + quantity.ToString();
-
-                                lblOutput.Text = "Quantity updated. Item added to cart";
-                            }
                         }
+
+                        //add info to string builder 
+                        cookie.Append(itemInfo[0] + "," + itemInfo[1] + "/");
                     }
 
-                    //add items back to cookie
-                    StringBuilder cookie = new StringBuilder();
+                    //check if quantity available
+                    Product product = new Product();
+                    String[] details = product.getProduct(ID);
 
-                    for (int j = 0; j<cartItems.Length;j++)
+                    if (quantity > Convert.ToInt32(details[2]))
                     {
-                        if(j<cartItems.Length-1)cookie.Append(cartItems[j] + "/");
+                        //lblOutput.Text = "Item not added to cart. Quantity too high";
+                    }
+                    else
+                    {
+                        
                     }
 
-                    //add new item if not in cart
-                    if (!inCart)
+                    if (inCart)
                     {
-                        cookie.Append("/" + ID.ToString() + ",1");
-
+                        lblOutput.Text = "Quantity updated. Item added to cart";
+                    }
+                    else
+                    {
+                        //add new item
+                        cookie.Append("/" + ID.ToString() + "," + quantity.ToString());
                         lblOutput.Text = "Item added to cart";
                     }
 

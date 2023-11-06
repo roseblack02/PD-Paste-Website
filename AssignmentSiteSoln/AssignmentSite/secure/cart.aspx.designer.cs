@@ -15,6 +15,15 @@ namespace AssignmentSite.secure
     {
 
         /// <summary>
+        /// address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl address;
+
+        /// <summary>
         /// ddlCurrency control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace AssignmentSite.secure
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlOrders;
+
+        /// <summary>
+        /// lblShipping control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblShipping;
 
         /// <summary>
         /// lblTotalCost control.

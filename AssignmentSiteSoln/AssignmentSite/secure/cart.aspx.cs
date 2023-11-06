@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using AssignmentSite.App_Code.BLL;
-using AssignmentSite.BLL;
+using IPGeolocation;
 
 namespace AssignmentSite.secure
 {
@@ -14,16 +14,8 @@ namespace AssignmentSite.secure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //check for cookie
-            if (Request.Cookies["cart"] == null)
-            {
-                lblOrderSummary.Text = "No items in cart";
-                lblTotalCost.Text = "";
-            }
-            else
-            {
-                loadCart();
-            }
+            checkCookie();
+            lblTotalCost.Text= getCountryName();
         }
 
         public void loadCart()
@@ -35,6 +27,8 @@ namespace AssignmentSite.secure
             this.pnlOrders.Controls.Clear();
             double totalCost = 0;
             int totalItems = 0;
+            int shipping = 0;
+            String strShipping = "";
 
             String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
 
@@ -74,6 +68,7 @@ namespace AssignmentSite.secure
 
                 //count up cost and quantity
                 totalCost += (cost * quantity);
+                totalCost += shipping;
                 totalItems += quantity;
 
                 // add the item controls (labels) to the panel  
@@ -82,7 +77,8 @@ namespace AssignmentSite.secure
 
             //show total items and cost
             this.lblOrderSummary.Text = totalItems + " items in your cart";
-            this.lblTotalCost.Text = "<br><br>Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
+            this.lblTotalCost.Text = "<br><br>Shipping : " + symbols[ddlCurrency.SelectedIndex] + strShipping;
+            this.lblTotalCost.Text = "<br>Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
         }
 
         public static double convertCurrency(double price, int currency)
@@ -94,18 +90,39 @@ namespace AssignmentSite.secure
             return price * exchangeRates[currency];
         }
 
-        protected void ddlCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        public String getCountryName()
         {
-            //check for cookie
-            if (Request.Cookies["cart"] == null)
+            String country = "";
+
+            // create IPGeolocation api object and pass in key
+            IPGeolocationAPI api = new IPGeolocationAPI("e7bc9e3d899743aca2697fb48dc09594");
+
+            // set ip address and parameters for api
+            //ip address is stored in a hidden <p> as it uses a js api to get client side address 
+            GeolocationParams geoParams = new GeolocationParams();
+            geoParams.SetIPAddress(address.InnerText);
+            geoParams.SetFields("country_name");
+
+            Dictionary<String, Object> response = api.GetGeolocation(geoParams);
+
+            //check if response is valid and get country name
+            if (Convert.ToInt32(response["status"]) == 200)
             {
-                lblOrderSummary.Text = "No items in cart";
-                lblTotalCost.Text = "";
+                Geolocation geolocation = (Geolocation)response["response"];
+                country = geolocation.GetCountryName();
             }
             else
             {
-                loadCart();
+                country = response["message"].ToString();
             }
+
+            return country;
+        }
+
+        protected void ddlCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //check for cookie and reload basket
+            checkCookie();
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -120,6 +137,21 @@ namespace AssignmentSite.secure
 
             //clear cart
             clear();
+        }
+
+        public void checkCookie()
+        {
+            //check for cookie
+            if (Request.Cookies["cart"] == null)
+            {
+                lblOrderSummary.Text = "No items in cart";
+                lblTotalCost.Text = "";
+                lblShipping.Text = "";
+            }
+            else
+            {
+                loadCart();
+            }
         }
 
         public void clear()

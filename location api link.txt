@@ -1,0 +1,1 @@
+https://api.ipgeolocation.io/ipgeo?apiKey=e7bc9e3d899743aca2697fb48dc09594&ip=86.14.64.18&fields=country_name&excludes=country_name_official
