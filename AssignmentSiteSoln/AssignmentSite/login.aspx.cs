@@ -14,6 +14,13 @@ namespace AssignmentSite
         protected void Page_Load(object sender, EventArgs e)
         {
             btnLogout.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
+
+            //check for cookie
+            if (Request.Cookies["login"] != null)
+            {
+                //lgLogin.UserName = Request.Cookies["login"]["username"];
+                //lgLogin.Password = Request.Cookies["login"]["password"];
+            }
         }
 
         protected void lgLogin_Authenticate(object sender, AuthenticateEventArgs e)
@@ -24,6 +31,21 @@ namespace AssignmentSite
 
             if (id > -1)
             {
+                if (lgLogin.RememberMeSet)
+                {
+                    // save user info for cookie
+                    //create cookie
+                    HttpCookie objCookie = new HttpCookie("login");
+
+                    objCookie["username"] = lgLogin.UserName;
+                    objCookie["password"] = lgLogin.Password;
+
+                    //cookie lasts a month
+                    objCookie.Expires = DateTime.Now.AddMonths(1);
+
+                    Response.Cookies.Add(objCookie);
+                }
+
                 FormsAuthentication.RedirectFromLoginPage(lgLogin.UserName, true);
                 Response.Redirect("~/index.aspx");
             }
