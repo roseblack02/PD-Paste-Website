@@ -254,5 +254,32 @@ namespace AssignmentSite.DAL
 
             return details;
         }
+
+        //edit product stock
+        public static bool updateStock(int id, int stock)
+        {
+            try
+            {
+                OleDbConnection conn = openConnection();
+                string sqlStr = "UPDATE tblProduct " +
+                    "SET Stock = " + stock + " " +
+                    "WHERE ID=" + id + ";";
+
+                OleDbCommand cmd = new OleDbCommand(sqlStr, conn);
+
+                int count = cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                if (count == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

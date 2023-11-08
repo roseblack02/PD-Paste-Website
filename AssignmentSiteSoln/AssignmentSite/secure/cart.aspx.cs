@@ -169,8 +169,43 @@ namespace AssignmentSite.secure
 
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
-            //update quantity
+            //update product stock
 
+            //check fo cookie
+            if(Request.Cookies["cart"] != null)
+            {
+                //get info from cart
+                String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
+
+                //loop through cart and add items to panel
+                for (int i = 0; i < cartItems.Length; i++)
+                {
+                    //prevents errors due to extra / on the end
+                    if (cartItems[i].Trim() != "")
+                    {
+                        //get item info
+                        String[] item = cartItems[i].Split(',');
+                        int id = Convert.ToInt32(item[0]);
+                        int quantity = Convert.ToInt32(item[1]);
+
+                        //string builder object to put items in as strings
+                        StringBuilder sb = new StringBuilder();
+
+                        //get product info
+                        Product product = new Product();
+                        String[] details = product.getProduct(id);
+
+                        //get current stock
+                        int availableStock = Convert.ToInt32(details[2]);
+
+                        //get new stock value
+                        int updatedStock = availableStock - quantity;
+
+
+                    }
+
+                }
+            }
 
             //clear cart
             clear();
