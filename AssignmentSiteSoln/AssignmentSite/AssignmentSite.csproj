@@ -142,7 +142,12 @@
     <Content Include="javaScript\JavaScript.js" />
     <Content Include="login.aspx" />
     <Content Include="news.aspx" />
+    <Content Include="products\handPrintedL.aspx" />
+    <Content Include="products\handPrintedM.aspx" />
+    <Content Include="products\handPrintedS.aspx" />
     <Content Include="products\issue1.aspx" />
+    <Content Include="products\issue2.aspx" />
+    <Content Include="products\issue3.aspx" />
     <Content Include="secure\cart.aspx" />
     <Content Include="shop.aspx" />
     <Content Include="videos.aspx" />
@@ -267,12 +272,47 @@
     <Compile Include="news.aspx.designer.cs">
       <DependentUpon>news.aspx</DependentUpon>
     </Compile>
+    <Compile Include="products\handPrintedL.aspx.cs">
+      <DependentUpon>handPrintedL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\handPrintedL.aspx.designer.cs">
+      <DependentUpon>handPrintedL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\handPrintedM.aspx.cs">
+      <DependentUpon>handPrintedM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\handPrintedM.aspx.designer.cs">
+      <DependentUpon>handPrintedM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\handPrintedS.aspx.cs">
+      <DependentUpon>handPrintedS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\handPrintedS.aspx.designer.cs">
+      <DependentUpon>handPrintedS.aspx</DependentUpon>
+    </Compile>
     <Compile Include="products\issue1.aspx.cs">
       <DependentUpon>issue1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="products\issue1.aspx.designer.cs">
       <DependentUpon>issue1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\issue2.aspx.cs">
+      <DependentUpon>issue2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\issue2.aspx.designer.cs">
+      <DependentUpon>issue2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\issue3.aspx.cs">
+      <DependentUpon>issue3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\issue3.aspx.designer.cs">
+      <DependentUpon>issue3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">

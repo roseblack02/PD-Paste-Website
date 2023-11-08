@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using AssignmentSite.App_Code.BLL;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AssignmentSite.App_Code.BLL;
-using AssignmentSite.BLL;
 
 namespace AssignmentSite.products
 {
-    public partial class issue1 : System.Web.UI.Page
+    public partial class handPrintedS : System.Web.UI.Page
     {
-        public const int ID = 2;
+        public const int ID = 7;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -122,7 +119,7 @@ namespace AssignmentSite.products
                                 int availableStock = Convert.ToInt32(details[2]);
 
                                 //dont update quantity if too high
-                                if(quantity + itemQuantity > availableStock)
+                                if (quantity + itemQuantity > availableStock)
                                 {
                                     quantity = itemQuantity;
                                     lblOutput.Text = "Item not added to cart. Quantity too high";
@@ -139,7 +136,7 @@ namespace AssignmentSite.products
 
                             cookie.Append(itemInfo[0] + "," + itemQuantity.ToString() + "/");
                         }
-                            
+
                     }
 
                     //add item to cart if id not already found in cart
@@ -172,6 +169,15 @@ namespace AssignmentSite.products
             }
 
             return true;
+        }
+
+        //move to different page when new size is selected
+        protected void ddlSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //0 large, 1 medium, 2 small
+            String[] urls = { "~/products/handPrintedL.aspx?id=1", "~/products/handPrintedM.aspx?id=6", "~/products/handPrintedS.aspx?id=7" };
+
+            Response.Redirect(urls[ddlSize.SelectedIndex-1]);
         }
     }
 }

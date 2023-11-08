@@ -30,48 +30,54 @@ namespace AssignmentSite.secure
             double shipping = 0;
             String strShipping = "";
 
+            //get info from cart
             String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
 
             //loop through cart and add items to panel
             for (int i = 0; i < cartItems.Length; i++)
             {
-                //get item info
-                String[] item = cartItems[i].Split(',');
-                int id = Convert.ToInt32(item[0]);
-                int quantity = Convert.ToInt32(item[1]);
+                //prevents errors due to extra / on the end
+                if (cartItems[i].Trim() != "")
+                {
+                    //get item info
+                    String[] item = cartItems[i].Split(',');
+                    int id = Convert.ToInt32(item[0]);
+                    int quantity = Convert.ToInt32(item[1]);
 
-                //string builder object to put items in as strings
-                StringBuilder sb = new StringBuilder();
+                    //string builder object to put items in as strings
+                    StringBuilder sb = new StringBuilder();
 
-                //get product info
-                Product product = new Product();
-                String[] details = product.getProduct(id);
+                    //get product info
+                    Product product = new Product();
+                    String[] details = product.getProduct(id);
 
-                String name = details[0];
-                Double price = Convert.ToDouble(details[3]);
+                    String name = details[0];
+                    Double price = Convert.ToDouble(details[3]);
 
-                //get currency from drop down list
-                int currency = ddlCurrency.SelectedIndex;
+                    //get currency from drop down list
+                    int currency = ddlCurrency.SelectedIndex;
 
-                //convert price
-                double cost = convertCurrency(price, ddlCurrency.SelectedIndex);
+                    //convert price
+                    double cost = convertCurrency(price, ddlCurrency.SelectedIndex);
 
-                Label itemLabel = new Label();
-                //itemLabel.CssClass = "cartInfo";
+                    Label itemLabel = new Label();
+                    //itemLabel.CssClass = "cartInfo";
 
-                sb.Append("<br>______________________________________<br>");
+                    sb.Append("<br>______________________________________<br>");
 
-                sb.Append("Name : " + name + "<br>");
-                sb.Append("Cost : " + symbols[ddlCurrency.SelectedIndex] + cost + "<br>");
-                sb.Append("Quantity : " + quantity + "<br>");
-                itemLabel.Text = sb.ToString();
+                    sb.Append("Name : " + name + "<br>");
+                    sb.Append("Cost : " + symbols[ddlCurrency.SelectedIndex] + cost + "<br>");
+                    sb.Append("Quantity : " + quantity + "<br>");
+                    itemLabel.Text = sb.ToString();
 
-                //count up cost and quantity
-                totalCost += (cost * quantity);
-                totalItems += quantity;
+                    //count up cost and quantity
+                    totalCost += (cost * quantity);
+                    totalItems += quantity;
 
-                // add the item controls (labels) to the panel  
-                this.pnlOrders.Controls.Add(itemLabel);
+                    // add the item controls (labels) to the panel  
+                    this.pnlOrders.Controls.Add(itemLabel);
+                }
+                    
             }
 
             //get shipping cost based on country

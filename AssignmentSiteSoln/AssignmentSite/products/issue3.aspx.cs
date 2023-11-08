@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using AssignmentSite.App_Code.BLL;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AssignmentSite.App_Code.BLL;
-using AssignmentSite.BLL;
 
 namespace AssignmentSite.products
 {
-    public partial class issue1 : System.Web.UI.Page
+    public partial class issue3 : System.Web.UI.Page
     {
-        public const int ID = 2;
+        public const int ID = 4;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -122,7 +119,7 @@ namespace AssignmentSite.products
                                 int availableStock = Convert.ToInt32(details[2]);
 
                                 //dont update quantity if too high
-                                if(quantity + itemQuantity > availableStock)
+                                if (quantity + itemQuantity > availableStock)
                                 {
                                     quantity = itemQuantity;
                                     lblOutput.Text = "Item not added to cart. Quantity too high";
@@ -139,7 +136,7 @@ namespace AssignmentSite.products
 
                             cookie.Append(itemInfo[0] + "," + itemQuantity.ToString() + "/");
                         }
-                            
+
                     }
 
                     //add item to cart if id not already found in cart
