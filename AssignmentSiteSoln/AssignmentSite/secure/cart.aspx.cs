@@ -201,7 +201,7 @@ namespace AssignmentSite.secure
                         //get new stock value
                         int updatedStock = availableStock - quantity;
 
-
+                        product.updateStock(id, updatedStock);
                     }
 
                 }

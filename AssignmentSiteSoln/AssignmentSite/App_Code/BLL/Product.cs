@@ -88,5 +88,11 @@ namespace AssignmentSite.App_Code.BLL
         {
             return DataAccess.getProductByID(id);
         }
+
+        //update product stock
+        public Boolean updateStock(int id, int stock)
+        {
+            return DataAccess.updateStock(id, stock);
+        }
     }
 }
