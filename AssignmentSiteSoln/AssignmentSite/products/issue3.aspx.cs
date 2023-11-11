@@ -33,7 +33,7 @@ namespace AssignmentSite.products
                 }
                 else
                 {
-                    lblInStock.Text = "In of stock";
+                    lblInStock.Text = "In stock";
                 }
             }
         }
