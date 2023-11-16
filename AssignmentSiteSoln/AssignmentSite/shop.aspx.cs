@@ -9,6 +9,7 @@ using System.IO;
 using System.Data;
 using AssignmentSite.BLL;
 using AssignmentSite.App_Code.BLL;
+using AssignmentSite.refCurWS;
 
 namespace AssignmentSite
 {
@@ -19,14 +20,15 @@ namespace AssignmentSite
 
         }
 
-        public static double convertCurrency(double price, int currency)
+        //old currency function
+        /*public static double convertCurrency(double price, int currency)
         {
             //list containing exhange rates in order of GBP, USD, EUR
             //GBP is base currency
             double[] exchangeRates = { 1, 1.24, 1.15 };
 
             return price * exchangeRates[currency];
-        }
+        }*/
 
         protected void ddlCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -50,7 +52,9 @@ namespace AssignmentSite
                 double cost = Convert.ToDouble(product.getProduct(id)[3]);
 
                 //convert cost
-                lblCost.Text = convertCurrency(cost, currency).ToString();
+                refCurWS.currencyWS curObj = new currencyWS();
+                lblCost.Text = curObj.convertCurrency(cost, currency).ToString();
+
                 lblPrice.Text = "Price: " + symbols[currency];
             }
         }

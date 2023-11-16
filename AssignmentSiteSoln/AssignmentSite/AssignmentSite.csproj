@@ -156,11 +156,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\refCurWS\currencyWS.disco" />
     <Content Include="Web References\refViewCounter\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <Content Include="secure\Web.config" />
+    <None Include="Web References\refCurWS\currencyWS.wsdl" />
+    <Content Include="Web References\refCurWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web References\refViewCounter\viewCounter.disco" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
@@ -352,6 +358,11 @@
       <DependentUpon>viewCounter.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Web References\refCurWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\refViewCounter\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -377,6 +388,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:54857/currencyWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\refCurWS\</RelPath>
+      <UpdateFromURL>http://localhost:54857/currencyWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AssignmentSite_refCurWS_currencyWS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://localhost:44352/viewCounter.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\refViewCounter\</RelPath>

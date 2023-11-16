@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI.WebControls;
 using AssignmentSite.App_Code.BLL;
+using AssignmentSite.refCurWS;
 using IPGeolocation;
 
 namespace AssignmentSite.secure
@@ -21,6 +22,7 @@ namespace AssignmentSite.secure
         {
             //list of currency symbols
             String[] symbols = { "£", "$", "€" };
+            refCurWS.currencyWS curObj = new currencyWS();
 
             // clear previous items
             this.pnlOrders.Controls.Clear();
@@ -58,7 +60,7 @@ namespace AssignmentSite.secure
                     int currency = ddlCurrency.SelectedIndex;
 
                     //convert price
-                    double cost = convertCurrency(price, ddlCurrency.SelectedIndex);
+                    double cost = curObj.convertCurrency(price, ddlCurrency.SelectedIndex);
 
                     Label itemLabel = new Label();
                     //itemLabel.CssClass = "cartInfo";
@@ -91,7 +93,7 @@ namespace AssignmentSite.secure
             }
             else
             {
-                shipping = convertCurrency(25, ddlCurrency.SelectedIndex);
+                shipping = curObj.convertCurrency(25, ddlCurrency.SelectedIndex);
                 strShipping = symbols[ddlCurrency.SelectedIndex] + shipping.ToString() + " International shipping fees to " + country;
             }
 
@@ -103,14 +105,15 @@ namespace AssignmentSite.secure
             this.lblTotalCost.Text = "Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
         }
 
-        public static double convertCurrency(double price, int currency)
+        //old currency function
+        /*public static double convertCurrency(double price, int currency)
         {
             //list containing exhange rates in order of GBP, USD, EUR
             //GBP is base currency
             double[] exchangeRates = { 1, 1.24, 1.15 };
 
             return price * exchangeRates[currency];
-        }
+        }*/
 
         public String getCountryName()
         {

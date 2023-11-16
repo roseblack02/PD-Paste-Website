@@ -5,5 +5,8 @@
     <Setting Name="AssignmentSite_refViewCounter_viewCounter" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://localhost:44352/viewCounter.asmx</Value>
     </Setting>
+    <Setting Name="AssignmentSite_refCurWS_currencyWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:54857/currencyWS.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
