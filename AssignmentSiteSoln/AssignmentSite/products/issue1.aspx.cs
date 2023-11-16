@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AssignmentSite.App_Code.BLL;
 using AssignmentSite.BLL;
+using AssignmentSite.refCurWS;
 
 namespace AssignmentSite.products
 {
@@ -41,14 +42,15 @@ namespace AssignmentSite.products
             }
         }
 
-        public static double convertCurrency(double price, int currency)
+        //old currecny converter function
+        /*public static double convertCurrency(double price, int currency)
         {
             //list containing exhange rates in order of GBP, USD, EUR
             //GBP is base currency
             double[] exchangeRates = { 1, 1.24, 1.15 };
 
             return price * exchangeRates[currency];
-        }
+        }*/
 
         protected void ddlCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -64,7 +66,9 @@ namespace AssignmentSite.products
             double cost = Convert.ToDouble(product.getProduct(ID)[3]);
 
             //convert cost
-            lblCost.Text = convertCurrency(cost, currency).ToString();
+            refCurWS.currencyWS curObj = new currencyWS();
+            lblCost.Text = curObj.convertCurrency(cost, currency).ToString();
+
             lblPrice.Text = "Price: " + symbols[currency];
         }
 
