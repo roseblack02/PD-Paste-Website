@@ -28,43 +28,51 @@ namespace AssignmentSite
             }
 
             //check for cookie
-            if (Request.Cookies["cart"] != null)
+            try
             {
-                //System.Diagnostics.Debug.WriteLine(Request.Cookies["cart"]["items"].ToString());
-
-                //get total item count
-                String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
-
-                int totalItems = 0;
-
-                for(int i = 0; i < cartItems.Length; i++)
+                if (Request.Cookies["cart"] != null)
                 {
-                    //System.Diagnostics.Debug.WriteLine(cartItems[i]);
+                    //System.Diagnostics.Debug.WriteLine(Request.Cookies["cart"]["items"].ToString());
 
-                    //prevents errors due to extra / on the end
-                    if (cartItems[i].Trim() != "")
+                    //get total item count
+                    String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
+
+                    int totalItems = 0;
+
+                    for (int i = 0; i < cartItems.Length; i++)
                     {
-                        String[] itemInfo = cartItems[i].Split(',');
+                        //System.Diagnostics.Debug.WriteLine(cartItems[i]);
 
-                        //System.Diagnostics.Debug.WriteLine("ID...... " + itemInfo[0]);
-                        //System.Diagnostics.Debug.WriteLine("Quantity ++++ " + itemInfo[1]);
+                        //prevents errors due to extra / on the end
+                        if (cartItems[i].Trim() != "")
+                        {
+                            String[] itemInfo = cartItems[i].Split(',');
 
-                        int quantity = Convert.ToInt32(itemInfo[1]);
+                            //System.Diagnostics.Debug.WriteLine("ID...... " + itemInfo[0]);
+                            //System.Diagnostics.Debug.WriteLine("Quantity ++++ " + itemInfo[1]);
 
-                        totalItems += quantity;
+                            int quantity = Convert.ToInt32(itemInfo[1]);
+
+                            totalItems += quantity;
+                        }
+
                     }
-                    
-                }
 
-                if (totalItems > 0)
-                {
-                    lblCart.Text = "Cart(" + totalItems.ToString() + ")";
-                }
-                else
-                {
-                    lblCart.Text = "Cart";
+                    if (totalItems > 0)
+                    {
+                        lblCart.Text = "Cart(" + totalItems.ToString() + ")";
+                    }
+                    else
+                    {
+                        lblCart.Text = "Cart";
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
     }
 }

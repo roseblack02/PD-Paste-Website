@@ -20,89 +20,102 @@ namespace AssignmentSite.secure
 
         public void loadCart()
         {
-            //list of currency symbols
-            String[] symbols = { "£", "$", "€" };
-            refCurWS.currencyWS curObj = new currencyWS();
-
-            // clear previous items
-            this.pnlOrders.Controls.Clear();
-
-            double totalCost = 0;
-            int totalItems = 0;
-            double shipping = 0;
-            String strShipping = "";
-
-            //get info from cart
-            String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
-
-            //loop through cart and add items to panel
-            for (int i = 0; i < cartItems.Length; i++)
+            try
             {
-                //prevents errors due to extra / on the end
-                if (cartItems[i].Trim() != "")
+                //list of currency symbols
+                String[] symbols = { "£", "$", "€" };
+                refCurWS.currencyWS curObj = new currencyWS();
+
+                // clear previous items
+                this.pnlOrders.Controls.Clear();
+
+                double totalCost = 0;
+                int totalItems = 0;
+                double shipping = 0;
+                String strShipping = "";
+
+                //print cooie for debug
+                System.Diagnostics.Debug.WriteLine(Request.Cookies["cart"]["items"].ToString());
+
+                //get info from cart
+                String[] cartItems = Request.Cookies["cart"]["items"].ToString().Split('/');
+
+                //loop through cart and add items to panel
+                for (int i = 0; i < cartItems.Length; i++)
                 {
-                    //get item info
-                    String[] item = cartItems[i].Split(',');
-                    int id = Convert.ToInt32(item[0]);
-                    int quantity = Convert.ToInt32(item[1]);
+                    //prevents errors due to extra / on the end
+                    if (cartItems[i].Trim() != "")
+                    {
+                        //get item info
+                        String[] item = cartItems[i].Split(',');
+                        int id = Convert.ToInt32(item[0]);
+                        int quantity = Convert.ToInt32(item[1]);
 
-                    //string builder object to put items in as strings
-                    StringBuilder sb = new StringBuilder();
+                        //string builder object to put items in as strings
+                        StringBuilder sb = new StringBuilder();
 
-                    //get product info
-                    Product product = new Product();
-                    String[] details = product.getProduct(id);
+                        //get product info
+                        Product product = new Product();
+                        String[] details = product.getProduct(id);
 
-                    String name = details[0];
-                    Double price = Convert.ToDouble(details[3]);
+                        String name = details[0];
+                        Double price = Convert.ToDouble(details[3]);
 
-                    //get currency from drop down list
-                    int currency = ddlCurrency.SelectedIndex;
+                        //get currency from drop down list
+                        int currency = ddlCurrency.SelectedIndex;
 
-                    //convert price
-                    double cost = curObj.convertCurrency(price, ddlCurrency.SelectedIndex);
+                        //convert price
+                        double cost = curObj.convertCurrency(price, ddlCurrency.SelectedIndex);
 
-                    Label itemLabel = new Label();
-                    //itemLabel.CssClass = "cartInfo";
+                        Label itemLabel = new Label();
+                        //itemLabel.CssClass = "cartInfo";
 
-                    sb.Append("<br>______________________________________<br>");
+                        sb.Append("<br>______________________________________<br>");
 
-                    sb.Append("Name : " + name + "<br>");
-                    sb.Append("Cost : " + symbols[ddlCurrency.SelectedIndex] + cost + "<br>");
-                    sb.Append("Quantity : " + quantity + "<br>");
-                    itemLabel.Text = sb.ToString();
+                        sb.Append("Name : " + name + "<br>");
+                        sb.Append("Cost : " + symbols[ddlCurrency.SelectedIndex] + cost + "<br>");
+                        sb.Append("Quantity : " + quantity + "<br>");
+                        itemLabel.Text = sb.ToString();
 
-                    //count up cost and quantity
-                    totalCost += (cost * quantity);
-                    totalItems += quantity;
+                        //count up cost and quantity
+                        totalCost += (cost * quantity);
+                        totalItems += quantity;
 
-                    // add the item controls (labels) to the panel  
-                    this.pnlOrders.Controls.Add(itemLabel);
+                        // add the item controls (labels) to the panel  
+                        this.pnlOrders.Controls.Add(itemLabel);
+                    }
+
                 }
-                    
+
+                //get shipping cost based on country
+                //String country = getCountryName();
+                String country = "United Kingdom";
+
+                if (country == "United Kingdom")
+                {
+                    shipping = 0;
+                    strShipping = "Free UK shipping";
+                }
+                else
+                {
+                    shipping = curObj.convertCurrency(25, ddlCurrency.SelectedIndex);
+                    strShipping = symbols[ddlCurrency.SelectedIndex] + shipping.ToString() + " International shipping fees to " + country;
+                }
+
+                totalCost += shipping;
+
+                //show total items and cost
+                this.lblOrderSummary.Text = totalItems + " items in your cart";
+                this.lblShipping.Text = "<br><br>Shipping : " + strShipping;
+                this.lblTotalCost.Text = "Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
+
+                lblError.Text = "";
             }
-
-            //get shipping cost based on country
-            //String country = getCountryName();
-            String country= "United Kingdom";
-
-            if (country=="United Kingdom")
+            catch(Exception ex)
             {
-                shipping = 0;
-                strShipping = "Free UK shipping";
+                lblError.Text = "There was an error. No items found in your cart";
             }
-            else
-            {
-                shipping = curObj.convertCurrency(25, ddlCurrency.SelectedIndex);
-                strShipping = symbols[ddlCurrency.SelectedIndex] + shipping.ToString() + " International shipping fees to " + country;
-            }
-
-            totalCost += shipping;
-
-            //show total items and cost
-            this.lblOrderSummary.Text = totalItems + " items in your cart";
-            this.lblShipping.Text = "<br><br>Shipping : " + strShipping;
-            this.lblTotalCost.Text = "Total Cost : " + symbols[ddlCurrency.SelectedIndex] + totalCost;
+            
         }
 
         //old currency function
