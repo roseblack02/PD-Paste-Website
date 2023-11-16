@@ -240,3 +240,6 @@ E:\PD assignment\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\As
 E:\PD assignment\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.csproj.CopyComplete
 E:\PD assignment\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.dll
 E:\PD assignment\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\obj\Debug\AssignmentSite.pdb
+E:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\bin\IPGeolocation.exe
+E:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\bin\Newtonsoft.Json.dll
+E:\PD-Paste-Website\AssignmentSiteSoln\AssignmentSite\bin\Newtonsoft.Json.xml

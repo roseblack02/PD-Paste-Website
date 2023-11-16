@@ -1,0 +1,2 @@
+E:\PD-Paste-Website\AssignmentSiteSoln\webService\obj\Debug\webService.csproj.AssemblyReference.cache
+E:\PD-Paste-Website\AssignmentSiteSoln\webService\obj\Debug\webService.csproj.CoreCompileInputs.cache
