@@ -81,8 +81,8 @@ namespace AssignmentSite.secure
             }
 
             //get shipping cost based on country
-            //String country = getCountryName();
-            String country= "United Kingdom";
+            String country = getCountryName();
+            //String country= "United Kingdom";
 
             if (country=="United Kingdom")
             {
